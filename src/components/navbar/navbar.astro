@@ -6,35 +6,30 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 const menuitems = [
   {
-    title: "Features",
+    title: "Servicios",
     path: "#",
     children: [
-      { title: "Action", path: "/" },
-      { title: "Another action", path: "#" },
-      { title: "Dropdown Submenu", path: "#" },
-      { title: "404 Page", path: "/404" },
+      { title: "Desarrollo Web", path: "/" },
+      { title: "Automatización", path: "#" },
+      { title: "E-commerce", path: "#" },
+      { title: "Software a la medida", path: "#" },
     ],
   },
   {
-    title: "Pricing",
+    title: "Costos",
     path: "/pricing",
   },
   {
-    title: "About",
+    title: "Proyectos",
     path: "/about",
   },
   {
-    title: "Blog",
-    path: "/blog",
-  },
-  {
-    title: "Contact",
+    title: "Nosotros",
     path: "/contact",
   },
   {
-    title: "Pro Version",
-    badge: true,
-    path: "https://astroship-pro.web3templates.com/",
+    title: "Contáctanos",
+    path: "/contact",
   },
 ];
 ---
@@ -69,11 +64,6 @@ const menuitems = [
                       href={item.path}
                       class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900">
                       <span> {item.title}</span>
-                      {item.badge && (
-                        <span class="ml-1 px-2 py-0.5 text-[10px] animate-pulse font-semibold uppercase text-white bg-indigo-600 rounded-full">
-                          New
-                        </span>
-                      )}
                     </a>
                   </li>
                 )}
@@ -87,11 +77,11 @@ const menuitems = [
         </div>
       </MenuItems>
     </Astronav>
-    <div>
+    <!-- <div>
       <div class="hidden lg:flex items-center gap-4">
         <a href="#">Log in</a>
         <Link href="#" size="md">Sign up</Link>
       </div>
-    </div>
+    </div> -->
   </header>
 </Container>
