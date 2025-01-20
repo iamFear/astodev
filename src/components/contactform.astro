@@ -6,9 +6,11 @@ import Button from "./ui/button.astro";
      Then you will get all form submissions in your email inbox. -->
 <form
   action="https://api.web3forms.com/submit"
+  name="customer-information"
   method="POST"
   id="form"
   class="needs-validation"
+  data-netlify="true"
   novalidate>
   <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
   <!-- Create your free access key from https://web3forms.com/ -->
