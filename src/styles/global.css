@@ -1,0 +1,137 @@
+:root {
+  /* Backgrounds, hero sections, navbars */
+  --primary-color: #0a0a0a;
+  /* Primary CTAs, icons, bold highlights */
+  --accent-1: oklch(35.8% 0.288 302.321);
+  /* Secondary accents, links, hover effects */
+  --accent-2: #00f0d1;
+  /* Light mode backgrounds, cards */
+  --light-background: #ececec;
+  /* Text on light backgrounds */
+  --text-dark: #0d0d0d;
+  /* Text on dark backgrounds */
+  --text-light: #ffffff;
+  /* Text on dark backgrounds */
+  --text-light-second: #eeeeee;
+  /* Subtext, UI hints */
+  --text-muted: #808080;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+/* Main Layout */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100vw;
+  height: auto;
+  /* overflow: hidden; */
+
+  font-family: "Bricolage Grotesque", sans-serif;
+
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+
+/* NavBar */
+
+.navbar {
+  width: 100vw;
+  height: 5.6rem;
+
+  font-size: 2.4rem;
+
+  margin-top: 5.6rem;
+  padding: 0 2.8rem 0 2.8rem;
+
+  /* background-color: var(--accent-1); */
+  background: linear-gradient(
+    to bottom,
+    oklch(35.8% 0.288 302.321),
+    oklch(25% 0.288 302.321)
+  );
+
+  justify-content: space-between;
+}
+
+.nav-left {
+  gap: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  font-size: 2.8rem;
+}
+
+.nav-right ul {
+  list-style: none;
+  gap: 3.2rem;
+}
+
+.nav-right ul li a {
+  text-decoration: none;
+  font-weight: 400;
+  color: var(--text-light-second);
+}
+
+/* Home Header (HomeTop) */
+
+.header-main {
+  width: auto;
+  margin: 3.2rem 0 0 8rem;
+  gap: 16rem;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.header-main h1 {
+  font-size: 8.2rem;
+  line-height: 8rem;
+}
+
+.header-main p {
+  font-size: 2.2rem;
+  letter-spacing: 0.4px;
+  line-height: 3rem;
+}
+
+.header-btns {
+  gap: 2.4rem;
+}
+
+.header-btns a {
+  text-decoration: none;
+  width: 21rem;
+  height: 4.8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.05rem;
+  font-weight: 600;
+}
+
+.h-services-btn {
+  background-color: var(--light-background);
+  color: var(--accent-1);
+}
+
+.h-contact-btn {
+  background-color: var(--accent-1);
+  color: var(--text-light);
+}
