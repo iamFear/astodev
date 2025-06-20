@@ -12,7 +12,7 @@
   /* Text on dark backgrounds */
   --text-light: #ffffff;
   /* Text on dark backgrounds */
-  --text-light-second: #eeeeee;
+  --text-light-second: #dddddd;
   /* Subtext, UI hints */
   --text-muted: #808080;
 }
@@ -64,6 +64,23 @@ body {
   );
 
   justify-content: space-between;
+
+  /* transition: 3s all; */
+}
+
+.nav-el {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar:has(.nav-el:hover) .nav-el {
+  opacity: 0.4;
+}
+
+.nav-el:hover {
+  opacity: 1 !important;
 }
 
 .nav-left {
@@ -126,12 +143,114 @@ body {
   font-weight: 600;
 }
 
-.h-services-btn {
+.h-services-btn:link,
+.h-services-btn:visited,
+.h-services-btn:active {
+  background-color: var(--light-background);
+  color: var(--accent-1);
+
+  transition: 0.3s all;
+}
+
+.h-services-btn:hover {
+  background-color: var(--accent-1);
+  color: var(--light-background);
+}
+
+.h-contact-btn:link,
+.h-contact-btn:visited,
+.h-contact-btn:active {
+  background-color: var(--accent-1);
+  color: var(--text-light);
+
+  transition: 0.3s all;
+}
+
+.h-contact-btn:hover {
   background-color: var(--light-background);
   color: var(--accent-1);
 }
 
-.h-contact-btn {
+.services-drop {
+  display: inline-block;
+  transition: 0.3s ease;
+
+  font-size: 1.2rem !important;
+  /* margin-top: 0.2rem; */
+  transform: rotate(180deg);
+}
+
+.nav-ser:hover .services-drop {
+  transform: rotate(360deg);
+  margin-top: 0.35rem;
+}
+
+/* HomeServices (Bottom of the landing) */
+
+.services-left {
+  align-items: start;
+  flex-direction: column;
+}
+
+.landing-services {
+  margin-top: 10rem;
+  margin-bottom: 32rem;
+
+  /* flex-direction: column; */
+  align-items: start;
+  gap: 6.4rem;
+}
+
+.landing-div {
+  width: 12rem;
+  height: 0.6rem;
   background-color: var(--accent-1);
-  color: var(--text-light);
+
+  margin-bottom: 0.8rem;
+}
+
+.landing-services h1 {
+  font-size: 3.8rem;
+}
+
+.services-text {
+  font-size: 0.8rem;
+  margin: 0;
+  color: var(--text-light-second) !important;
+}
+
+.services-separator {
+  margin-top: 18rem;
+  width: 0.6rem;
+  height: 12rem;
+  background-color: var(--accent-1);
+}
+
+/* Items from the list of benefits */
+
+.services-right ul {
+  list-style: none;
+
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
+
+  margin-top: 3.4rem;
+}
+
+.services-right ul li h3 {
+  font-size: 2.1rem;
+}
+
+.ser-text {
+  margin-top: 0.8rem;
+  font-size: 1.8rem !important;
+}
+.ser-span-text {
+  font-size: 1.6rem !important;
+  font-weight: 500 !important;
+}
+
+.ser-margin-text {
+  margin-top: 2.4rem;
 }
