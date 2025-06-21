@@ -3,8 +3,9 @@
   --primary-color: #0a0a0a;
   /* Primary CTAs, icons, bold highlights */
   --accent-1: oklch(35.8% 0.288 302.321);
+  --accent-1-op: rgba(96, 0, 180, 0.8);
   /* Secondary accents, links, hover effects */
-  --accent-2: #00f0d1;
+  --accent-2: rgba(0, 240, 208, 0.5);
   /* Light mode backgrounds, cards */
   --light-background: #ececec;
   /* Text on light backgrounds */
@@ -193,8 +194,8 @@ body {
 }
 
 .landing-services {
-  margin-top: 10rem;
-  margin-bottom: 32rem;
+  margin-top: 17.5rem;
+  margin-bottom: 17.5rem;
 
   /* flex-direction: column; */
   align-items: start;
@@ -253,4 +254,93 @@ body {
 
 .ser-margin-text {
   margin-top: 2.4rem;
+}
+
+/* Home CTA */
+
+.home-cta-container {
+  /* width: 100vw; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 8.4rem;
+
+  margin-bottom: 17.5rem;
+}
+
+.home-cta-container h1 {
+  font-size: 8.4rem;
+  text-align: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10rem;
+}
+
+.form-container h3 {
+  width: 35vw;
+  font-size: 3.2rem;
+
+  color: var(--text-light-second);
+}
+
+.contact-form {
+  display: flex;
+  align-items: start;
+  /* justify-content: center; */
+  flex-direction: column;
+
+  margin-left: 8rem;
+
+  gap: 1.2rem;
+
+  border-radius: 2rem;
+
+  font-size: 2.9rem;
+  font-weight: 600;
+
+  padding: 5.2rem 9.2rem;
+
+  background-color: var(--accent-1-op);
+
+  box-shadow: 0 7.5px 25px rgba(255, 255, 255, 0.2);
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* espacio entre label y input */
+}
+
+.contact-form button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-transform: uppercase;
+
+  margin-top: 1.2rem;
+
+  text-decoration: none;
+  width: auto;
+  padding: 2.2rem 2.2rem;
+  height: 2.4rem;
+
+  border-radius: 0.5rem;
+
+  background-color: var(--accent-2);
+  color: var(--text-light);
+
+  border: 0;
+
+  font-size: 2.2rem;
+  letter-spacing: 1.2px;
+  font-weight: 600;
 }
