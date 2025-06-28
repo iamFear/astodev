@@ -383,3 +383,163 @@ body {
   font-weight: 400;
   font-size: 1.4rem;
 }
+
+/* Cost Header */
+.cost-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cost-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+
+  margin-top: 3vh;
+
+  flex-direction: column;
+}
+
+.cost-title {
+  font-size: 6.2rem;
+  text-align: center;
+}
+
+.cost-title-desc {
+  font-size: 2.8rem;
+  text-align: center;
+  color: var(--text-light-second);
+}
+
+.price-cards-grid {
+  display: grid;
+
+  margin: 2.6rem 15vw 0 15vw;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 2.5rem;
+
+  row-gap: 3.5rem;
+}
+
+/* Price Card */
+
+.price-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* opcional */
+  height: 100%; /* asegura que ocupe todo el espacio disponible */
+  padding: 0.6rem 1.5rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.price-content {
+  /* background-color: var(--light-background); */
+  color: var(--text-dark);
+  border-radius: 10px;
+
+  /* padding: 1.8rem; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+
+  margin-top: 1.6rem;
+}
+
+.price-title {
+  font-size: 2.6rem;
+}
+
+.price-divider {
+  width: 15rem;
+  height: 0.4rem;
+  background-color: var(--accent-1);
+
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.price-cost {
+  margin-top: -0.5rem;
+  font-size: 2.2rem;
+
+  color: #444;
+}
+
+.price-desc {
+  /* margin-top: -0.5rem; */
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.price-features {
+  font-size: 1.6rem;
+  margin-left: 1.3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.price-btn:link,
+.price-btn:visited,
+.price-btn:active {
+  text-decoration: none;
+  width: 16rem;
+  height: 4.8rem;
+
+  border-radius: 10px;
+
+  margin-top: 1.6rem;
+
+  background-color: var(--accent-1);
+  color: var(--text-light);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2.05rem;
+  font-weight: 600;
+
+  margin-bottom: 0.5rem;
+
+  transition: 0.3s all;
+}
+
+.price-btn:hover {
+  background-color: #ffffff; /* fondo blanco */
+  color: var(--accent-1); /* texto en color principal */
+  border: 2px solid var(--accent-1);
+}
+
+/* Cost Footer */
+.cost-footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  margin-top: 7.8rem;
+}
+
+.cost-form-ct {
+  width: 90vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-form-price {
+  margin-top: 4.2rem;
+
+  margin-bottom: 4.6rem;
+
+  width: 36.8rem;
+}

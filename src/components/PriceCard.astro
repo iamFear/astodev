@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: String;
+  price: String;
+  feature_1: String;
+  feature_2: String;
+  feature_3: String;
+  feature_4: String;
+  feature_5: String;
+}
+
+const { title, price, feature_1, feature_2, feature_3, feature_4, feature_5 } = Astro.props;
+---
+
+<article class="price-card">
+  <div class="price-content">
+  <h3 class="price-title">
+    {title}
+  </h3>
+
+  <p class="price-cost">Desde ${price} COP</p>
+
+  <div class="price-divider"></div>
+
+  <p class="price-desc">Incluye:</p>
+  
+  <ul class="price-features">
+    <!-- 
+    <li>Landing Page Profesional (1 Página)</li>
+    <li>Diseño Responsive (Funcional en cualquier dispositivo)</li>
+    <li>Formulario de Contacto</li>
+    <li>Optimización para Buscadores (SEO)</li>
+    <li>Implementacion en servicio de Hosting</li>
+     -->
+    <li>{feature_1}</li>
+    <li>{feature_2}</li>
+    <li>{feature_3}</li>
+    <li>{feature_4}</li>
+    <li>{feature_5}</li>
+  </ul>  
+  </div>
+
+  <a href="#" class="price-btn">Contáctanos</a>
+</article>

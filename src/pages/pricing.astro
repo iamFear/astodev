@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CostHeader from "../components/CostHeader.astro";
+import NavBar from "../components/NavBar.astro";
+import PriceCard from "../components/PriceCard.astro";
+import CostFooter from "../components/CostFooter.astro";
+import FormPrice from "../components/FormPrice.astro";
+
+const title = 'Costos - Planes de desarrollo y consultoría | Astodev';
+---
+
+<Layout title={title}>
+  <NavBar />
+  <CostHeader />
+
+  <div class="price-cards-grid">
+    <PriceCard 
+    title={'Web Básica'}
+    price="600.000" 
+    feature_1={"Landing Page Profesional (1 Página)"}
+    feature_2={"Diseño Responsive (Funcional en cualquier dispositivo)"}
+    feature_3={"Formulario de Contacto"}
+    feature_4={"Optimización para Buscadores (SEO)"}
+    feature_5={"Implementacion en servicio de Hosting"}
+    />
+
+    <PriceCard 
+    title={'Tienda en Línea'}
+    price="1.500.000" 
+    feature_1={"Todo lo incluido en la Web Básica"}
+    feature_2={"Tienda Online Funcional con Shopify"}
+    feature_3={"Carrito de Compras y Pasarela de Pago Integrada"}
+    feature_4={"Panel Administrativo para Gestionar Productos e Inventario"}
+    feature_5={"Asesoriamiento en Métodos de Envío"}
+    />
+
+    <PriceCard 
+    title={'Aplicación Web'}
+    price="3.000.000" 
+    feature_1={"Funcionalidades según tus necesidades"}
+    feature_2={"Diseño UI/UX Personalizado"}
+    feature_3={"Optimización al Límite (más rápida, mas clientes)"}
+    feature_4={"Autenticación de Usuarios (Login/Registro)"}
+    feature_5={"Integración con Bases de Datos o CRM"}
+    />
+
+    <PriceCard 
+    title={'Email Marketing'}
+    price="400.000" 
+    feature_1={"Diseño y Envío de Campañas Profesionales"}
+    feature_2={"Integración con Mailchimp (Herramienta Lider en Email)"}
+    feature_3={"Automatización de Correos (Bienvenida, Newsletter, etc.)"}
+    feature_4={"Segmentación y Gestión de Contactos"}
+    feature_5={"Reportes de Usuarios e Interacción"}
+    />
+
+    <PriceCard 
+    title={'SEO (Optimización en buscadores)'}
+    price="250.000" 
+    feature_1={"Análisis de Palabras Clave"}
+    feature_2={"Optimización de Títulos, Descripciones y URLs"}
+    feature_3={"Estructura Semántica y Jerarquía HTML Correcta"}
+    feature_4={"Mejora de Velocidad de Varga y Experiencia Móvil"}
+    feature_5={"Veriricacíon de Indexación en Google y Herramientas SEO"}
+    />
+
+    <PriceCard 
+    title={'Automatizaciones'}
+    price="700.000" 
+    feature_1={"Conexión entre Apps y Plataformas (ej. Zapier)"}
+    feature_2={"Automatización de Tareas Repetitivas (Envíos, Reportes, etc.)"}
+    feature_3={"Flujos de Trabajo Personalizados"}
+    feature_4={"Integración con Suites como Google Sheets, Outlook, etc."}
+    feature_5={"Soporte y Ajustes por 7 Días Post Entrega"}
+    />
+  </div>
+
+  <CostFooter />
+
+  <div class="cost-form-ct">
+  <FormPrice />
+  </div>
+
+  <!-- Maybe 6 cards, maybe 12 -->
+
+  <!-- Crear componente tipo "No encuentras lo que buscas, toma
+   form" -->
+
+</Layout>
