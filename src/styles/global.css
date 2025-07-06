@@ -77,6 +77,11 @@ body {
   /* transition: 3s all; */
 }
 
+.nav-left-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .nav-top {
   height: 5.6rem;
   color: var(--text-light);
@@ -85,7 +90,7 @@ body {
 .nav-contact {
   height: 100%;
 
-  width: 95vw;
+  width: 96.2vw;
 
   display: flex;
   align-items: center;
@@ -604,4 +609,94 @@ body {
   color: var(--text-light-second);
 
   line-height: -100x;
+}
+
+/* Contact Us */
+
+.ctus-container {
+  width: 100vw;
+
+  padding: 4.8rem 0 0 3.6rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 2.4rem;
+}
+
+.ctus-title {
+  font-size: 6.4rem;
+  text-align: center;
+}
+
+.ctus-subtitle {
+  font-size: 2.4rem;
+  color: var(--text-light-second);
+  text-align: center;
+
+  line-height: 3.2rem;
+}
+
+.ctus-forms {
+  width: 100vw;
+  padding: 2.4rem 0 0 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8.2rem;
+
+  padding-bottom: 6.2rem;
+}
+
+.ctus-forms-other {
+  width: 30rem;
+  padding: 2rem 3.5rem;
+  height: auto;
+
+  display: flex;
+  align-items: start;
+  justify-content: center;
+
+  gap: 0.6rem;
+
+  border-radius: 2rem;
+
+  background-color: var(--light-background);
+
+  flex-direction: column;
+}
+
+.ctus-forms-other h3 {
+  color: var(--text-dark);
+  font-size: 1.8rem;
+}
+
+.ctus-other-options {
+  list-style: none;
+  color: var(--text-dark);
+  font-size: 1.6rem;
+
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ctus-other-options li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+
+  font-weight: 500;
+}
+
+.ctus-other-data {
+  /* color: var(--text-muted); */
+  font-weight: 300;
 }
