@@ -48,13 +48,21 @@ body {
 
 /* NavBar */
 
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+}
+
 .navbar {
   width: 100vw;
   height: 5.6rem;
 
   font-size: 2.4rem;
 
-  margin-top: 5.6rem;
+  /* margin-top: 5.6rem; */
   padding: 0 2.8rem 0 2.8rem;
 
   /* background-color: var(--accent-1); */
@@ -67,6 +75,30 @@ body {
   justify-content: space-between;
 
   /* transition: 3s all; */
+}
+
+.nav-top {
+  height: 5.6rem;
+  color: var(--text-light);
+}
+
+.nav-contact {
+  height: 100%;
+
+  width: 95vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1.9rem;
+
+  font-size: 1.9rem;
+}
+
+.nav-el-container {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .nav-el {
@@ -310,7 +342,7 @@ body {
 
   background-color: var(--accent-1-op);
 
-  box-shadow: 0 7.5px 25px rgba(255, 255, 255, 0.2);
+  /* box-shadow: 0 7.5px 25px rgba(255, 255, 255, 0.2); */
 }
 
 .contact-form label {
@@ -541,5 +573,35 @@ body {
 
   margin-bottom: 4.6rem;
 
+  margin-left: 12.5rem;
+
   width: 36.8rem;
+}
+
+/* Projects Header */
+
+.project-header-container {
+  width: 100vw;
+
+  margin-top: 4.4rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 1.2rem;
+}
+
+.project-title {
+  text-align: center;
+  font-size: 6.2rem;
+}
+
+.project-title-second {
+  font-size: 4.4rem;
+  text-align: center;
+  color: var(--text-light-second);
+
+  line-height: -100x;
 }
