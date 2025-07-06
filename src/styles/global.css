@@ -2,7 +2,7 @@
   /* Backgrounds, hero sections, navbars */
   --primary-color: #0a0a0a;
   /* Primary CTAs, icons, bold highlights */
-  --accent-1: oklch(35.8% 0.288 302.321);
+  --accent-1: #6000b4;
   --accent-1-op: rgba(96, 0, 180, 0.8);
   /* Secondary accents, links, hover effects */
   --accent-2: rgba(0, 240, 208, 0.7);
@@ -604,7 +604,7 @@ body {
 }
 
 .project-title-second {
-  font-size: 4.4rem;
+  font-size: 3.6rem;
   text-align: center;
   color: var(--text-light-second);
 
@@ -632,7 +632,7 @@ body {
 }
 
 .ctus-subtitle {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   color: var(--text-light-second);
   text-align: center;
 
@@ -699,4 +699,9 @@ body {
 .ctus-other-data {
   /* color: var(--text-muted); */
   font-weight: 300;
+}
+
+/* About Us */
+
+.about-container {
 }
