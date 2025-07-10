@@ -54,6 +54,11 @@ body {
   justify-content: center;
 
   flex-direction: column;
+
+  /* Sticky Navbar */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar {
@@ -85,6 +90,7 @@ body {
 .nav-top {
   height: 5.6rem;
   color: var(--text-light);
+  background-color: var(--primary-color);
 }
 
 .nav-contact {
@@ -704,4 +710,72 @@ body {
 /* About Us */
 
 .about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  margin-top: 4.8rem;
+  margin-bottom: 4.4rem;
+}
+
+.about-container h1 {
+  font-size: 5.2rem;
+  text-align: center;
+}
+
+.about-text {
+  width: 80vw;
+  text-align: center;
+  font-size: 2.4rem;
+  color: var(--text-light-second);
+}
+
+.about-mv {
+  margin-top: 2.8rem;
+  width: 80vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7.5vw;
+}
+
+.about-mv h2 {
+  font-size: 4.4rem;
+}
+
+.about-mv p {
+  font-size: 2rem;
+  color: var(--text-light-second);
+  line-height: 2.8rem;
+}
+
+.about-mv div {
+  height: 33.5rem;
+  width: 35vw;
+
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.about-container h3 {
+  font-size: 5.2rem;
+  text-align: center;
+}
+
+.about-form-text {
+  font-size: 2.6rem;
+  width: 60vw;
+  text-align: center;
+  color: var(--text-light-second);
+}
+
+.contact-form-about {
+  /* margin-top: ; */
+  margin-left: 37.5vw !important;
 }
