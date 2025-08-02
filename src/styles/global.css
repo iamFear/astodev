@@ -779,3 +779,41 @@ body {
   /* margin-top: ; */
   margin-left: 37.5vw !important;
 }
+
+/* Media Queries */
+
+@media (max-width: 1390px) {
+  html {
+    font-size: 58%;
+  }
+}
+
+@media (max-width: 1290px) {
+  html {
+    font-size: 54%;
+  }
+}
+
+@media (max-width: 1225px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 1170px) {
+  html {
+    font-size: 46%;
+  }
+}
+
+@media (max-width: 1120px) {
+  html {
+    font-size: 42%;
+  }
+}
+
+@media (max-width: 1060px) {
+  html {
+    font-size: 38%;
+  }
+}
