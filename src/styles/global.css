@@ -236,13 +236,21 @@ body {
   flex-direction: column;
 }
 
+.services-left h1 {
+  letter-spacing: normal;
+  line-height: normal;
+
+  margin: 1.5rem 0 1.5rem 0;
+}
+
 .landing-services {
   margin-top: 17.5rem;
   margin-bottom: 17.5rem;
 
   /* flex-direction: column; */
   align-items: start;
-  gap: 6.4rem;
+  justify-content: space-between;
+  /* gap: 6.4rem; */
 }
 
 .landing-div {
@@ -258,13 +266,14 @@ body {
 }
 
 .services-text {
-  font-size: 0.8rem;
+  font-size: 1.95rem !important;
   margin: 0;
   color: var(--text-light-second) !important;
 }
 
 .services-separator {
-  margin-top: 18rem;
+  margin-top: 1.5rem;
+  margin-right: 5rem;
   width: 0.6rem;
   height: 12rem;
   background-color: var(--accent-1);
@@ -280,6 +289,7 @@ body {
   gap: 2rem;
 
   margin-top: 3.4rem;
+  margin-right: 5rem;
 }
 
 .services-right ul li h3 {
@@ -815,5 +825,32 @@ body {
 @media (max-width: 1060px) {
   html {
     font-size: 38%;
+  }
+
+  .main-img {
+    width: 40%;
+    height: 40%;
+  }
+}
+
+@media (max-width: 925px) {
+  html {
+    font-size: 34%;
+  }
+}
+
+@media (max-width: 835px) {
+  html {
+    font-size: 30%;
+  }
+}
+
+@media (max-width: 740px) {
+  html {
+    font-size: 30%;
+  }
+
+  .main-img {
+    display: none;
   }
 }
