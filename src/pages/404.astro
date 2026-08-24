@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Página no encontrada">
+  <section class="notfound">
+    <div class="wrap">
+      <span class="eyebrow">Error 404</span>
+      <h1>Esta página no existe.</h1>
+      <p>El enlace que seguiste puede estar roto o la página fue movida.</p>
+      <a href="/" class="btn btn-primary">Volver al inicio <span class="btn-arrow">→</span></a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .notfound {
+    padding: clamp(6rem, 14vw, 10rem) 0;
+    text-align: center;
+  }
+  .notfound h1 { font-size: clamp(2rem, 4.5vw, 3rem); margin-top: 1rem; }
+  .notfound p { margin: 1.1rem auto 2rem; color: var(--ink-dim); max-width: 40ch; }
+</style>

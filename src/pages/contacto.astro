@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contacto" description="Hablemos de tu proyecto. Cuéntanos qué necesita tu negocio y te respondemos en menos de 24 horas.">
+  <section class="contact-hero">
+    <div class="wrap contact-grid">
+      <div class="contact-copy">
+        <span class="eyebrow">Contacto</span>
+        <h1>Hablemos de tu proyecto.</h1>
+        <p>Cuéntanos qué necesitas y te respondemos en menos de 24 horas, sin compromiso.</p>
+
+        <div class="contact-direct">
+          <a href="mailto:hola@astodev.co" class="direct-item">
+            <span class="tag">Email</span>
+            <span>hola@astodev.co</span>
+          </a>
+          <a href="https://wa.me/573000000000" target="_blank" rel="noopener" class="direct-item">
+            <span class="tag">WhatsApp</span>
+            <span>+57 300 000 0000</span>
+          </a>
+          <div class="direct-item">
+            <span class="tag">Ubicación</span>
+            <span>Medellín, Colombia</span>
+          </div>
+        </div>
+      </div>
+
+      <form
+        name="contacto"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/gracias"
+        class="contact-form"
+      >
+        <input type="hidden" name="form-name" value="contacto" />
+        <p class="hidden-field"><label>No llenar: <input name="bot-field" /></label></p>
+
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required />
+        </div>
+
+        <div class="field">
+          <label for="empresa">Empresa</label>
+          <input type="text" id="empresa" name="empresa" />
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="field">
+          <label for="necesidad">¿Qué necesitas?</label>
+          <select id="necesidad" name="necesidad">
+            <option>Desarrollo web</option>
+            <option>Software</option>
+            <option>Automatización</option>
+            <option>E-commerce</option>
+            <option>Consultoría</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="proyecto">Cuéntanos sobre tu proyecto</label>
+          <textarea id="proyecto" name="proyecto" rows="4" placeholder="Describe brevemente qué quieres construir o qué proceso quieres mejorar."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="presupuesto">Presupuesto aproximado</label>
+          <select id="presupuesto" name="presupuesto">
+            <option>Menos de $2M</option>
+            <option>$2M – $5M</option>
+            <option>$5M – $10M</option>
+            <option>$10M+</option>
+            <option>No estoy seguro</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary full">Enviar proyecto <span class="btn-arrow">→</span></button>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-hero {
+    padding: clamp(3rem, 7vw, 5rem) 0 clamp(4rem, 8vw, 6rem);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+  }
+  .contact-copy h1 {
+    font-size: clamp(2.2rem, 4.6vw, 3.2rem);
+    margin-top: 0.9rem;
+    max-width: 15ch;
+  }
+  .contact-copy p {
+    margin-top: 1.1rem;
+    color: var(--ink-dim);
+    font-size: 1.06rem;
+    max-width: 40ch;
+  }
+  .contact-direct {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .direct-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .direct-item:last-child { border-bottom: none; }
+  .direct-item span:last-child {
+    font-family: var(--f-display);
+    font-size: 1.1rem;
+  }
+  .direct-item:is(a):hover span:last-child { color: var(--signal); }
+
+  .contact-form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+  .hidden-field { position: absolute; left: -9999px; }
+  .field { display: flex; flex-direction: column; gap: 0.5rem; }
+  .field label {
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    background: var(--bg-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 0.95rem;
+    padding: 0.75em 0.9em;
+    resize: vertical;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--signal);
+  }
+  .full { justify-content: center; margin-top: 0.5rem; }
+
+  @media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>

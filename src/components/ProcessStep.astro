@@ -1,0 +1,66 @@
+---
+interface Props {
+  n: string;
+  title: string;
+  description: string;
+  last?: boolean;
+}
+const { n, title, description, last = false } = Astro.props;
+---
+
+<div class={`step ${last ? 'last' : ''}`}>
+  <div class="step-rail">
+    <span class="step-n">{n}</span>
+    {!last && <span class="step-line"></span>}
+  </div>
+  <div class="step-body">
+    <h3>{title}</h3>
+    <p>{description}</p>
+  </div>
+</div>
+
+<style>
+  .step {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1.5rem;
+  }
+  .step-rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .step-n {
+    font-family: var(--f-mono);
+    font-size: 0.8rem;
+    color: var(--signal);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-line {
+    width: 1px;
+    flex-grow: 1;
+    background: var(--line);
+    margin: 0.5rem 0;
+    min-height: 1.5rem;
+  }
+  .step-body { padding-bottom: 2.75rem; }
+  .step.last .step-body { padding-bottom: 0; }
+  .step-body h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .step-body p {
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    max-width: 46ch;
+  }
+</style>

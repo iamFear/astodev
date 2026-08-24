@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Gracias" description="Hemos recibido tu proyecto.">
+  <section class="thanks">
+    <div class="wrap">
+      <span class="eyebrow">Mensaje enviado</span>
+      <h1>Gracias, ya recibimos tu proyecto.</h1>
+      <p>Te respondemos en menos de 24 horas. Mientras tanto, puedes revisar cómo trabajamos o explorar nuestros servicios.</p>
+      <div class="thanks-actions">
+        <a href="/" class="btn btn-primary">Volver al inicio <span class="btn-arrow">→</span></a>
+        <a href="/servicios" class="btn btn-ghost">Ver servicios</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thanks {
+    padding: clamp(5rem, 12vw, 9rem) 0;
+    text-align: center;
+  }
+  .thanks h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin-top: 1rem;
+  }
+  .thanks p {
+    margin: 1.2rem auto 0;
+    color: var(--ink-dim);
+    max-width: 46ch;
+    font-size: 1.05rem;
+  }
+  .thanks-actions {
+    margin-top: 2.2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

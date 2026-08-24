@@ -1,0 +1,96 @@
+---
+interface Props {
+  tier: string;
+  price: string;
+  audience: string;
+  items: string[];
+  cta: string;
+  featured?: boolean;
+}
+const { tier, price, audience, items, cta, featured = false } = Astro.props;
+---
+
+<div class={`pricing-card ${featured ? 'featured' : ''}`}>
+  {featured && <span class="badge">Más elegido</span>}
+  <span class="tag">{tier}</span>
+  <p class="price">
+    <span class="price-from">Desde</span> {price}
+  </p>
+  <p class="audience">{audience}</p>
+  <hr class="rule" />
+  <ul>
+    {items.map((item: string) => <li>{item}</li>)}
+  </ul>
+  <a href="/contacto" class={`btn ${featured ? 'btn-primary' : 'btn-ghost'} full`}>{cta}</a>
+</div>
+
+<style>
+  .pricing-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .pricing-card.featured {
+    border-color: var(--brass);
+    background: linear-gradient(180deg, var(--brass-soft), var(--surface) 40%);
+  }
+  .badge {
+    position: absolute;
+    top: -0.8rem;
+    right: 1.5rem;
+    background: var(--brass);
+    color: var(--bg);
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.35em 0.7em;
+    border-radius: 3px;
+  }
+  .price {
+    font-family: var(--f-display);
+    font-size: 2rem;
+    margin-top: 0.7rem;
+  }
+  .price-from {
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+  .audience {
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  .rule { margin: 1.4rem 0; }
+  .pricing-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex-grow: 1;
+    margin-bottom: 1.6rem;
+  }
+  .pricing-card li {
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    padding-left: 1.1em;
+    position: relative;
+  }
+  .pricing-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    background: var(--signal);
+    border-radius: 1px;
+  }
+  .full { justify-content: center; width: 100%; }
+</style>

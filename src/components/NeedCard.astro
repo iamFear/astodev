@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  cta?: string;
+}
+const { title, description, href, cta = 'Ver solución' } = Astro.props;
+---
+
+<a href={href} class="need-card">
+  <p class="nc-title">{title}</p>
+  <p class="nc-desc">{description}</p>
+  <span class="nc-cta">{cta} <span class="btn-arrow">→</span></span>
+</a>
+
+<style>
+  .need-card {
+    display: block;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.6rem 1.7rem;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+  .need-card:hover {
+    border-color: var(--signal);
+    background: var(--surface-2);
+  }
+  .nc-title {
+    font-family: var(--f-display);
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
+  .nc-desc {
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+    margin-bottom: 1.1rem;
+  }
+  .nc-cta {
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--brass);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+  .need-card:hover .nc-cta { color: var(--signal); }
+  .need-card:hover .btn-arrow { transform: translateX(3px); display: inline-block; }
+</style>

@@ -1,0 +1,419 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FlowSignature from '../components/FlowSignature.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ProcessStep from '../components/ProcessStep.astro';
+import NeedCard from '../components/NeedCard.astro';
+import PricingCard from '../components/PricingCard.astro';
+import CTASection from '../components/CTASection.astro';
+
+const services = [
+  {
+    index: '01',
+    title: 'Desarrollo web',
+    description: 'Sitios rápidos y modernos, optimizados para convertir visitantes en clientes.',
+    items: ['Landing pages', 'Sitios corporativos', 'Web apps y dashboards', 'SEO técnico'],
+    href: '/servicios#web',
+  },
+  {
+    index: '02',
+    title: 'Software a medida',
+    description: 'Cuando las herramientas existentes no alcanzan, construimos alrededor de tus procesos.',
+    items: ['Sistemas administrativos', 'CRM personalizados', 'Plataformas SaaS', 'APIs e integraciones'],
+    href: '/servicios#software',
+  },
+  {
+    index: '03',
+    title: 'Automatización',
+    description: 'Identificamos tareas repetitivas y las convertimos en procesos automáticos.',
+    items: ['Automatización de Excel', 'Notificaciones y reportes', 'Workflows empresariales', 'Integración de APIs'],
+    href: '/servicios#automatizacion',
+  },
+  {
+    index: '04',
+    title: 'E-commerce',
+    description: 'Tiendas online diseñadas para vender, no solo para existir.',
+    items: ['Shopify', 'Checkout y pagos', 'WhatsApp e inventario', 'Optimización de conversión'],
+    href: '/servicios#ecommerce',
+  },
+];
+
+const needs = [
+  { title: 'Quiero una página web', description: 'Presencia digital profesional para tu empresa.', href: '/servicios#web' },
+  { title: 'Quiero vender online', description: 'Construimos o mejoramos tu tienda e-commerce.', href: '/servicios#ecommerce' },
+  { title: 'Quiero automatizar', description: 'Eliminamos tareas repetitivas y procesos manuales.', href: '/servicios#automatizacion' },
+  { title: 'Tengo una idea', description: 'La convertimos en un producto digital real.', href: '/servicios#software' },
+  { title: 'Necesito software', description: 'Sistemas construidos alrededor de tu operación.', href: '/servicios#software' },
+  { title: 'No sé qué necesito', description: 'Analizamos tu situación y encontramos oportunidades.', href: '/contacto', cta: 'Hablar con un experto' },
+];
+---
+
+<Layout title="Tecnología que hace crecer tu negocio">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Consultora tecnológica · Medellín, Colombia</span>
+        <h1>Tecnología que hace crecer <em>tu negocio.</em></h1>
+        <p>
+          Diseñamos y desarrollamos software, automatizaciones, tiendas online
+          y sistemas digitales que ayudan a las empresas a vender más, reducir
+          trabajo manual y operar de manera más eficiente.
+        </p>
+        <div class="hero-actions">
+          <a href="/contacto" class="btn btn-primary">Hablemos de tu proyecto <span class="btn-arrow">→</span></a>
+          <a href="/servicios" class="btn btn-ghost">Explorar servicios</a>
+        </div>
+        <p class="hero-meta">Desarrollo de software · Automatización · E-commerce · Consultoría</p>
+      </div>
+      <div class="hero-visual">
+        <FlowSignature />
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <!-- PROBLEMA -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">El problema</span>
+        <h2>Tu negocio no debería estar limitado por procesos manuales.</h2>
+        <p>
+          Excel, tareas repetitivas, sistemas desconectados y procesos manuales
+          consumen tiempo, generan errores y frenan el crecimiento. En Astodev
+          analizamos cómo funciona tu negocio y construimos tecnología alrededor
+          de tus necesidades.
+        </p>
+      </div>
+      <div class="grid-auto">
+        <div class="card">
+          <span class="tag">Procesos manuales</span>
+          <p class="card-text">Automatizamos tareas repetitivas para que tu equipo se enfoque en lo que realmente importa.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Sistemas desconectados</span>
+          <p class="card-text">Integramos las herramientas que ya usas para que la información fluya sola.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Oportunidades digitales</span>
+          <p class="card-text">Convertimos ideas y necesidades de negocio en productos y sistemas digitales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <!-- SERVICIOS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Servicios</span>
+        <h2>Soluciones digitales para problemas reales.</h2>
+        <p>Desde una página web hasta sistemas empresariales completos, construimos tecnología adaptada a tu negocio.</p>
+      </div>
+      <div class="grid-auto services-grid">
+        {services.map((s) => <ServiceCard {...s} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- QUE NECESITAS -->
+  <section class="section needs-section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Punto de partida</span>
+        <h2>¿Qué quieres mejorar?</h2>
+        <p>Elige lo que más se parece a tu situación. Nosotros nos encargamos del resto.</p>
+      </div>
+      <div class="grid-auto">
+        {needs.map((n) => <NeedCard {...n} />)}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <!-- PROCESO -->
+  <section class="section">
+    <div class="wrap proceso-grid">
+      <div class="section-head proceso-head">
+        <span class="eyebrow">Cómo trabajamos</span>
+        <h2>De la idea al resultado.</h2>
+        <p>Un proceso claro, pensado para que sepas exactamente en qué etapa está tu proyecto.</p>
+      </div>
+      <div class="steps">
+        <ProcessStep n="01" title="Descubrimiento" description="Entendemos tu negocio, tus objetivos y los problemas que quieres solucionar." />
+        <ProcessStep n="02" title="Estrategia" description="Definimos la solución, el alcance, la tecnología y el roadmap del proyecto." />
+        <ProcessStep n="03" title="Diseño" description="Diseñamos la experiencia y la estructura del producto." />
+        <ProcessStep n="04" title="Desarrollo" description="Construimos, integramos y probamos la solución paso a paso." />
+        <ProcessStep n="05" title="Lanzamiento" description="Publicamos el proyecto y verificamos que todo funcione correctamente." />
+        <ProcessStep n="06" title="Evolución" description="Seguimos mejorando la solución según las necesidades de tu negocio." last />
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <!-- CASOS DE EXITO -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Resultados</span>
+        <h2>Los números importan más que la tecnología.</h2>
+        <p>Un ejemplo de cómo convertimos un proceso manual en un sistema que trabaja solo.</p>
+      </div>
+      <div class="case-card">
+        <div class="case-story">
+          <div class="case-block">
+            <span class="tag">Problema</span>
+            <p>La empresa gestionaba sus pedidos manualmente, copiando información de WhatsApp a Excel todos los días.</p>
+          </div>
+          <div class="case-block">
+            <span class="tag">Solución</span>
+            <p>Diseñamos una tienda online integrada con sus procesos internos y con notificaciones automáticas.</p>
+          </div>
+          <div class="case-block">
+            <span class="tag">Resultado</span>
+            <p>Reducción del trabajo manual, centralización de pedidos y visibilidad total sobre el inventario.</p>
+          </div>
+        </div>
+        <div class="case-stats">
+          <div class="stat">
+            <span class="stat-num">↓ 60%</span>
+            <span class="stat-label">trabajo manual</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">↑ 35%</span>
+            <span class="stat-label">conversiones</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">↓ 80%</span>
+            <span class="stat-label">tiempo de procesamiento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <!-- PRECIOS PREVIEW -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Inversión</span>
+        <h2>Precios claros desde el primer contacto.</h2>
+        <p>Mostramos rangos iniciales para que sepas si un proyecto está dentro de tu presupuesto, antes de agendar una llamada.</p>
+      </div>
+      <div class="grid-auto">
+        <PricingCard
+          tier="Start"
+          price="$1.500.000 COP"
+          audience="Presencia digital profesional."
+          items={['Landing page', 'Diseño responsive', 'Formulario e integración WhatsApp', 'SEO básico']}
+          cta="Quiero Start"
+        />
+        <PricingCard
+          tier="Business"
+          price="$3.000.000 COP"
+          audience="Presencia digital completa."
+          items={['Hasta 10 páginas', 'Diseño personalizado', 'SEO técnico', 'CMS y analytics']}
+          cta="Quiero Business"
+          featured
+        />
+        <PricingCard
+          tier="Custom"
+          price="$6.000.000 COP"
+          audience="Funcionalidades específicas."
+          items={['Web app con usuarios', 'Dashboard y base de datos', 'APIs y automatizaciones', 'Integraciones a medida']}
+          cta="Hablar sobre mi proyecto"
+        />
+      </div>
+      <p class="precios-link">¿Buscas automatización, e-commerce o software? <a href="/precios">Ver todos los precios →</a></p>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <!-- SOBRE -->
+  <section class="section about-preview">
+    <div class="wrap about-grid">
+      <div class="section-head">
+        <span class="eyebrow">Sobre Astodev</span>
+        <h2>Construimos tecnología para empresas que quieren avanzar.</h2>
+        <p>
+          Astodev nació en 2025 con una idea clara: ayudar a las empresas a
+          aprovechar la tecnología para mejorar la forma en que trabajan,
+          venden y crecen. Somos una consultora tecnológica enfocada en
+          desarrollo web, automatización, e-commerce y soluciones digitales.
+        </p>
+        <a href="/nosotros" class="btn btn-ghost about-cta">Conocer Astodev <span class="btn-arrow">→</span></a>
+      </div>
+      <div class="about-facts">
+        <div class="fact">
+          <span class="fact-num">5+</span>
+          <span class="fact-label">años de experiencia en tecnología y ventas online</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">2025</span>
+          <span class="fact-label">año de fundación de Astodev</span>
+        </div>
+        <div class="fact">
+          <span class="fact-num">4</span>
+          <span class="fact-label">líneas de servicio: web, software, automatización y e-commerce</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection />
+</Layout>
+
+<style>
+  .hero {
+    padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4rem);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .hero-copy h1 {
+    font-size: clamp(2.5rem, 5.4vw, 4.1rem);
+    margin-top: 1rem;
+  }
+  .hero-copy h1 em {
+    font-style: italic;
+    color: var(--brass);
+  }
+  .hero-copy p {
+    margin-top: 1.4rem;
+    font-size: 1.12rem;
+    color: var(--ink-dim);
+    max-width: 46ch;
+  }
+  .hero-actions {
+    margin-top: 2.1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .hero-meta {
+    margin-top: 1.75rem;
+    font-family: var(--f-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.03em;
+    color: var(--ink-faint);
+  }
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-text {
+    margin-top: 0.9rem;
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+  }
+
+  .needs-section { padding-top: clamp(2.5rem, 5vw, 4rem); }
+
+  .proceso-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 3rem;
+  }
+  .proceso-head { margin-bottom: 0; }
+  .steps { padding-top: 0.5rem; }
+
+  .case-card {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2.5rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+  }
+  .case-story {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  .case-block p {
+    margin-top: 0.6rem;
+    color: var(--ink-dim);
+    font-size: 0.98rem;
+  }
+  .case-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.6rem;
+    border-left: 1px solid var(--line);
+    padding-left: 2.5rem;
+  }
+  .stat { display: flex; flex-direction: column; gap: 0.3rem; }
+  .stat-num {
+    font-family: var(--f-display);
+    font-size: 2.3rem;
+    color: var(--signal);
+  }
+  .stat-label {
+    font-family: var(--f-mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .precios-link {
+    margin-top: 2.5rem;
+    text-align: center;
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+  }
+  .precios-link a { color: var(--brass); font-weight: 600; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-cta { margin-top: 1.8rem; }
+  .about-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    border-left: 1px solid var(--line);
+    padding-left: 2.2rem;
+  }
+  .fact-num {
+    font-family: var(--f-display);
+    font-size: 2.4rem;
+    color: var(--brass);
+    display: block;
+  }
+  .fact-label {
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+    margin-top: 0.35rem;
+    display: block;
+    max-width: 32ch;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; max-width: 340px; margin: 0 auto; }
+    .proceso-grid { grid-template-columns: 1fr; }
+    .case-card { grid-template-columns: 1fr; }
+    .case-stats { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 1.6rem; flex-direction: row; flex-wrap: wrap; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-facts { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 1.8rem; flex-direction: row; flex-wrap: wrap; }
+  }
+</style>

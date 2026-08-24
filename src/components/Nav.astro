@@ -1,0 +1,140 @@
+---
+const links = [
+  { href: '/', label: 'Inicio' },
+  { href: '/servicios', label: 'Servicios' },
+  { href: '/precios', label: 'Precios' },
+  { href: '/nosotros', label: 'Nosotros' },
+];
+const path = Astro.url.pathname;
+---
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="logo">
+      <span class="logo-mark" aria-hidden="true"></span>
+      ASTODEV
+    </a>
+
+    <nav class="links" aria-label="Navegación principal">
+      {links.map((l) => (
+        <a href={l.href} class={path === l.href ? 'active' : ''}>{l.label}</a>
+      ))}
+    </nav>
+
+    <a href="/contacto" class="btn btn-primary nav-cta">Hablemos de tu proyecto</a>
+
+    <button class="menu-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <nav aria-label="Navegación móvil">
+      {links.map((l) => (
+        <a href={l.href}>{l.label}</a>
+      ))}
+      <a href="/contacto" class="btn btn-primary">Hablemos de tu proyecto</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 14, 19, 0.82);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.05rem;
+    padding-bottom: 1.05rem;
+  }
+  .logo {
+    font-family: var(--f-mono);
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 500;
+  }
+  .logo-mark {
+    width: 9px;
+    height: 9px;
+    background: var(--signal);
+    border-radius: 2px;
+    box-shadow: 3px 3px 0 var(--brass);
+  }
+  .links {
+    display: flex;
+    gap: 2.1rem;
+    font-size: 0.92rem;
+    color: var(--ink-dim);
+  }
+  .links a { transition: color 0.15s ease; }
+  .links a:hover, .links a.active { color: var(--ink); }
+  .nav-cta { font-size: 0.85rem; padding: 0.7em 1.3em; }
+
+  .menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+  }
+  .menu-btn span {
+    width: 20px;
+    height: 1.5px;
+    background: var(--ink);
+    display: block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .menu-btn.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .menu-btn.open span:nth-child(2) { opacity: 0; }
+  .menu-btn.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    transition: max-height 0.25s ease;
+  }
+  .mobile-menu.open { max-height: 400px; }
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem var(--pad) 1.5rem;
+  }
+  .mobile-menu a {
+    padding: 0.85rem 0;
+    font-size: 1rem;
+    color: var(--ink-dim);
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-menu .btn { margin-top: 1rem; justify-content: center; border-bottom: none; }
+
+  @media (max-width: 860px) {
+    .links, .nav-cta { display: none; }
+    .menu-btn { display: flex; }
+    .mobile-menu { display: block; }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('open');
+    btn.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(!!isOpen));
+  });
+</script>

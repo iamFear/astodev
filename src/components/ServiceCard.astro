@@ -1,0 +1,95 @@
+---
+interface Props {
+  index: string;
+  title: string;
+  description: string;
+  items: string[];
+  href: string;
+  id?: string;
+}
+const { index, title, description, items, href, id } = Astro.props;
+---
+
+<article class="service-card" id={id}>
+  <div class="sc-top">
+    <span class="sc-index">{index}</span>
+    <h3>{title}</h3>
+  </div>
+  <p class="sc-desc">{description}</p>
+  <ul class="sc-list">
+    {items.map((item) => <li>{item}</li>)}
+  </ul>
+  <a href={href} class="sc-cta">
+    Ver más <span class="btn-arrow">→</span>
+  </a>
+</article>
+
+<style>
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .service-card:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-3px);
+  }
+  .sc-top {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+  .sc-index {
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    color: var(--signal);
+  }
+  .sc-top h3 {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  .sc-desc {
+    color: var(--ink-dim);
+    font-size: 0.96rem;
+    margin-bottom: 1.3rem;
+  }
+  .sc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    margin-bottom: 1.6rem;
+    flex-grow: 1;
+  }
+  .sc-list li {
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    padding-left: 1.1em;
+    position: relative;
+  }
+  .sc-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    background: var(--brass);
+    border-radius: 1px;
+  }
+  .sc-cta {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+  .sc-cta:hover { color: var(--signal); }
+  .sc-cta:hover .btn-arrow { transform: translateX(3px); display: inline-block; }
+</style>

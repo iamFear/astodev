@@ -1,0 +1,77 @@
+---
+interface Props {
+  title?: string;
+  text?: string;
+}
+const {
+  title = '¿Qué podríamos mejorar en tu negocio?',
+  text = 'Cuéntanos qué problema quieres solucionar y descubramos juntos la mejor forma de hacerlo.',
+} = Astro.props;
+---
+
+<section class="cta-final">
+  <div class="wrap cta-inner">
+    <div class="cta-lines" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <span class="eyebrow">Empecemos</span>
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <div class="cta-actions">
+      <a href="/contacto" class="btn btn-primary">Hablar con Astodev <span class="btn-arrow">→</span></a>
+      <span class="cta-note">Sin compromiso · Respuesta en menos de 24 horas</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-final {
+    padding: clamp(4rem, 9vw, 7rem) 0;
+    border-top: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-lines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .cta-lines span {
+    position: absolute;
+    height: 1px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+  }
+  .cta-lines span:nth-child(1) { top: 20%; }
+  .cta-lines span:nth-child(2) { top: 50%; }
+  .cta-lines span:nth-child(3) { top: 80%; }
+
+  .cta-inner {
+    position: relative;
+    max-width: 700px;
+  }
+  .cta-inner h2 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin-top: 0.9rem;
+  }
+  .cta-inner p {
+    margin-top: 1.2rem;
+    color: var(--ink-dim);
+    font-size: 1.08rem;
+    max-width: 52ch;
+  }
+  .cta-actions {
+    margin-top: 2.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    flex-wrap: wrap;
+  }
+  .cta-note {
+    font-family: var(--f-mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+</style>

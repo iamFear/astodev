@@ -1,0 +1,80 @@
+---
+interface Props {
+  nodes?: string[];
+}
+const { nodes = ['PROBLEMA', 'ESTRATEGIA', 'SISTEMA', 'RESULTADO'] } = Astro.props;
+const n = nodes.length;
+const w = 520;
+const h = 300;
+const marginX = 40;
+const step = (w - marginX * 2) / (n - 1);
+
+type FlowPoint = {
+  x: number;
+  y: number;
+  label: string;
+};
+
+const points: FlowPoint[] = nodes.map((label: string, i: number) => {
+  const x = marginX + step * i;
+  const y = h / 2 + (i % 2 === 0 ? -34 : 34) * (i === 0 || i === n - 1 ? 0 : 1);
+  return { x, y, label };
+});
+const yBase = h / 2;
+const path = points
+  .map((p: FlowPoint, i: number) => (i === 0 ? `M ${p.x} ${yBase}` : `C ${p.x - step / 2} ${p.y}, ${p.x - step / 2} ${p.y}, ${p.x} ${yBase}`))
+  .join(' ');
+---
+
+<div class="flow-signature" aria-hidden="true">
+  <svg viewBox={`0 0 ${w} ${h}`} xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="flowLine" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="var(--brass)" />
+        <stop offset="100%" stop-color="var(--signal)" />
+      </linearGradient>
+    </defs>
+
+    <path d={path} fill="none" stroke="var(--line-strong)" stroke-width="1.5" />
+    <path id="flowPath" d={path} fill="none" stroke="url(#flowLine)" stroke-width="1.5" stroke-dasharray="6 460" class="flow-draw" />
+
+    {points.map((p: FlowPoint) => (
+      <g>
+        <circle cx={p.x} cy={yBase} r="3.5" fill="var(--bg)" stroke="var(--ink-faint)" stroke-width="1.4" />
+      </g>
+    ))}
+
+    <circle r="4.5" fill="var(--signal)" class="pulse">
+      <animateMotion dur="6s" repeatCount="indefinite" path={path} rotate="auto" />
+    </circle>
+
+    {points.map((p: FlowPoint, i: number) => (
+      <text
+        x={p.x}
+        y={yBase + (i % 2 === 0 ? 26 : -18)}
+        text-anchor="middle"
+        class="node-label"
+      >{p.label}</text>
+    ))}
+  </svg>
+</div>
+
+<style>
+  .flow-signature {
+    width: 100%;
+    max-width: 520px;
+  }
+  .flow-signature svg { width: 100%; height: auto; overflow: visible; }
+  .node-label {
+    font-family: var(--f-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    fill: var(--ink-faint);
+  }
+  .pulse {
+    filter: drop-shadow(0 0 6px var(--signal));
+  }
+  .flow-draw {
+    opacity: 0.9;
+  }
+</style>
