@@ -4,8 +4,3 @@
 
 [build.environment]
   NODE_VERSION = "22"
-
-[[redirects]]
-  from = "/*"
-  to = "/404"
-  status = 404
