@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Gracias" description="Hemos recibido tu registro como Astodev Partner.">
+  <section class="thanks">
+    <div class="wrap">
+      <span class="eyebrow">Registro recibido</span>
+      <h1>Gracias, ya eres parte de Astodev Partners.</h1>
+      <p>
+        Te contactamos en menos de 24 horas para explicarte cómo registrar tu primer referido
+        y resolver cualquier duda sobre el programa.
+      </p>
+      <div class="thanks-actions">
+        <a href="/" class="btn btn-primary">Volver al inicio <span class="btn-arrow">→</span></a>
+        <a href="/partners" class="btn btn-ghost">Ver el programa de nuevo</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thanks {
+    padding: clamp(5rem, 12vw, 9rem) 0;
+    text-align: center;
+  }
+  .thanks h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin-top: 1rem;
+  }
+  .thanks p {
+    margin: 1.2rem auto 0;
+    color: var(--ink-dim);
+    max-width: 46ch;
+    font-size: 1.05rem;
+  }
+  .thanks-actions {
+    margin-top: 2.2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

@@ -1,0 +1,578 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTASection from '../components/CTASection.astro';
+
+const steps = [
+  {
+    n: '01',
+    title: 'Conoces un negocio',
+    text: 'Un restaurante con una web mala, una empresa que aún maneja todo por Excel, una tienda que quiere vender online o alguien con una idea de aplicación.',
+  },
+  {
+    n: '02',
+    title: 'Lo conectas con Astodev',
+    text: 'Nos compartes el contacto por el formulario de este programa, WhatsApp o una presentación directa.',
+  },
+  {
+    n: '03',
+    title: 'Astodev hace el resto',
+    text: 'Contactamos al prospecto, analizamos su necesidad, hacemos la propuesta, negociamos, cerramos y desarrollamos el proyecto.',
+  },
+  {
+    n: '04',
+    title: 'Si se cierra, ganas el 15%',
+    text: 'Sin inversión. Sin necesidad de programar. Sin tener que prestar soporte al cliente.',
+  },
+];
+
+const tiers = [
+  {
+    name: 'Partner',
+    audience: 'Cualquier persona que conozca un negocio con una necesidad tecnológica.',
+    items: ['15% por proyecto cerrado', 'Sin mínimo de referidos', 'Registro simple del referido'],
+    featured: false,
+  },
+  {
+    name: 'Partner Pro',
+    audience: 'Para quienes traen clientes de forma constante.',
+    items: ['15% base', 'Prioridad en información', 'Material comercial', 'Acceso a casos de éxito'],
+    featured: true,
+    unlock: 'Se desbloquea después de 3 proyectos cerrados',
+  },
+  {
+    name: 'Strategic Partner',
+    audience: 'Agencias, diseñadores, consultores y empresas complementarias.',
+    items: ['Condiciones negociadas a la medida', 'Campañas conjuntas', 'Relación de largo plazo'],
+    featured: false,
+  },
+];
+
+const rules = [
+  {
+    title: 'El referido debe ser nuevo',
+    text: 'No se paga comisión por contactos que ya estaban en conversaciones con Astodev.',
+  },
+  {
+    title: 'Debe registrarse primero',
+    text: 'Registra al referido antes de presentarlo. Así evitamos conflictos sobre quién trajo a quién.',
+  },
+  {
+    title: 'Debe convertirse en cliente',
+    text: 'La comisión no se paga por leads, sino por proyectos que efectivamente se cierran.',
+  },
+  {
+    title: 'El pago depende del dinero recibido',
+    text: 'La comisión se calcula sobre los pagos que Astodev recibe realmente, no sobre cotizaciones enviadas.',
+  },
+];
+---
+
+<Layout
+  title="Partners"
+  description="Astodev Partners: conecta negocios con tecnología y gana el 15% de cada proyecto que se cierre. Sin inversión, sin necesidad de programar."
+>
+  <section class="partners-hero">
+    <div class="wrap partners-hero-grid">
+      <div>
+        <span class="eyebrow">Astodev Partners</span>
+        <h1>Gana dinero conectando negocios con Astodev.</h1>
+        <p>
+          Recibe el <strong>15%</strong> de cada proyecto que llegue por ti y se cierre
+          exitosamente. Sin inversión, sin necesidad de programar y sin tener que dar soporte.
+        </p>
+        <div class="hero-actions">
+          <a href="#registro" class="btn btn-primary">Quiero ser Partner <span class="btn-arrow">→</span></a>
+          <a href="#calculadora" class="btn btn-ghost">Ver calculadora</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="tag">Ejemplo</span>
+        <p class="hero-card-label">Proyecto vendido</p>
+        <p class="hero-card-value">$10.200.000</p>
+        <hr class="rule" />
+        <p class="hero-card-label">Tu comisión (15%)</p>
+        <p class="hero-card-commission">$1.530.000</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="como-funciona">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Cómo funciona</span>
+        <h2>Tú conectas. Nosotros construimos. Todos ganamos.</h2>
+        <p>El proceso está diseñado para ser simple: no necesitas saber programar ni vender software profesionalmente, solo conocer a alguien con un problema que Astodev pueda resolver.</p>
+      </div>
+      <div class="steps-grid">
+        {steps.map((s) => (
+          <div class="card step-card">
+            <span class="step-n">{s.n}</span>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <section class="section" id="calculadora">
+    <div class="wrap calc-grid">
+      <div class="section-head calc-head">
+        <span class="eyebrow">Calculadora</span>
+        <h2>¿Cuánto puedes ganar?</h2>
+        <p>Mueve el control para estimar el valor del proyecto que podrías referir y descubre tu comisión del 15%.</p>
+      </div>
+
+      <div class="card calc-card">
+        <label for="proyecto-valor" class="calc-label">Valor estimado del proyecto</label>
+        <input
+          type="range"
+          id="proyecto-valor"
+          min="1000000"
+          max="30000000"
+          step="250000"
+          value="8000000"
+        />
+        <div class="calc-range-labels">
+          <span>$1.000.000</span>
+          <span>$30.000.000</span>
+        </div>
+
+        <div class="calc-result">
+          <span class="calc-result-label">Valor del proyecto</span>
+          <span class="calc-result-value" id="valor-proyecto">$8.000.000</span>
+        </div>
+        <div class="calc-result calc-result-commission">
+          <span class="calc-result-label">Tu comisión estimada (15%)</span>
+          <span class="calc-result-value" id="valor-comision">$1.200.000</span>
+        </div>
+
+        <a href="#registro" class="btn btn-primary full">Quiero generar esta comisión <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <section class="section" id="niveles">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Niveles</span>
+        <h2>Una red, no referidos aislados.</h2>
+        <p>El programa crece contigo. Empiezas como Partner y, según el volumen y tipo de referidos, puedes avanzar a niveles con más beneficios.</p>
+      </div>
+      <div class="grid-auto">
+        {tiers.map((t) => (
+          <div class={`card tier-card ${t.featured ? 'featured' : ''}`}>
+            {t.featured && <span class="badge">Más recomendado</span>}
+            <span class="tag">{t.name}</span>
+            <p class="tier-audience">{t.audience}</p>
+            <hr class="rule" />
+            <ul>
+              {t.items.map((item: string) => <li>{item}</li>)}
+            </ul>
+            {t.unlock && <p class="tier-unlock">{t.unlock}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <section class="section" id="condiciones">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Condiciones</span>
+        <h2>Reglas claras del programa.</h2>
+        <p>El 15% se paga sobre los pagos que Astodev efectivamente recibe correspondientes al proyecto referido. Si el proyecto se paga en partes, la comisión se libera proporcionalmente con cada pago.</p>
+      </div>
+      <div class="grid-auto">
+        {rules.map((r) => (
+          <div class="card rule-card">
+            <h3>{r.title}</h3>
+            <p>{r.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <section class="section" id="registro">
+    <div class="wrap registro-grid">
+      <div class="registro-copy">
+        <span class="eyebrow">Registro</span>
+        <h2>Conviértete en Partner.</h2>
+        <p>
+          Cuéntanos un poco sobre ti. Te explicamos cómo funciona el programa y cómo registrar
+          tu primer referido.
+        </p>
+        <div class="registro-direct">
+          <a href="mailto:hola@astodev.co" class="direct-item">
+            <span class="tag">Email</span>
+            <span>hola@astodev.co</span>
+          </a>
+          <a href="https://wa.me/573000000000" target="_blank" rel="noopener" class="direct-item">
+            <span class="tag">WhatsApp</span>
+            <span>+57 300 000 0000</span>
+          </a>
+        </div>
+      </div>
+
+      <form
+        name="partners"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/gracias-partner"
+        class="registro-form"
+      >
+        <input type="hidden" name="form-name" value="partners" />
+        <p class="hidden-field"><label>No llenar: <input name="bot-field" /></label></p>
+
+        <div class="field">
+          <label for="p-nombre">Nombre</label>
+          <input type="text" id="p-nombre" name="nombre" required />
+        </div>
+
+        <div class="field">
+          <label for="p-whatsapp">WhatsApp</label>
+          <input type="tel" id="p-whatsapp" name="whatsapp" required />
+        </div>
+
+        <div class="field">
+          <label for="p-email">Email</label>
+          <input type="email" id="p-email" name="email" required />
+        </div>
+
+        <div class="field">
+          <label for="p-ocupacion">¿A qué te dedicas?</label>
+          <select id="p-ocupacion" name="ocupacion">
+            <option>Diseñador/a</option>
+            <option>Agencia o freelancer de marketing</option>
+            <option>Community manager</option>
+            <option>Fotógrafo/a o creador de contenido</option>
+            <option>Contador/a o consultor/a</option>
+            <option>Emprendedor/a</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="p-origen">¿Cómo conociste Astodev?</label>
+          <input type="text" id="p-origen" name="origen" placeholder="WhatsApp, grupo, referido, redes sociales..." />
+        </div>
+
+        <button type="submit" class="btn btn-primary full">Quiero ser Partner <span class="btn-arrow">→</span></button>
+      </form>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿Ya tienes un negocio en mente?"
+    text="Regístrate como Partner y cuéntanos sobre el referido. Nosotros nos encargamos del resto del proceso."
+  />
+</Layout>
+
+<style>
+  .partners-hero {
+    padding: clamp(3rem, 7vw, 5rem) 0 clamp(3rem, 6vw, 4rem);
+    border-bottom: 1px solid var(--line);
+  }
+  .partners-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+  }
+  .partners-hero h1 {
+    font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+    margin-top: 0.9rem;
+    max-width: 18ch;
+  }
+  .partners-hero p {
+    margin-top: 1.1rem;
+    color: var(--ink-dim);
+    font-size: 1.08rem;
+    max-width: 52ch;
+  }
+  .partners-hero strong { color: var(--brass); font-weight: 600; }
+  .hero-actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-card {
+    background: var(--surface);
+    border: 1px solid var(--brass);
+    background: linear-gradient(180deg, var(--brass-soft), var(--surface) 55%);
+    border-radius: var(--radius);
+    padding: 2.2rem;
+    text-align: center;
+  }
+  .hero-card-label {
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    margin-top: 0.9rem;
+  }
+  .hero-card-value {
+    font-family: var(--f-display);
+    font-size: 1.9rem;
+    margin-top: 0.4rem;
+  }
+  .hero-card-commission {
+    font-family: var(--f-display);
+    font-size: 2.4rem;
+    color: var(--brass);
+    margin-top: 0.4rem;
+  }
+  .hero-card .rule { margin: 1.4rem 0; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .step-card { text-align: left; }
+  .step-n {
+    font-family: var(--f-mono);
+    font-size: 0.85rem;
+    color: var(--signal);
+  }
+  .step-card h3 {
+    font-size: 1.1rem;
+    margin-top: 0.7rem;
+  }
+  .step-card p {
+    margin-top: 0.7rem;
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+  }
+
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(2.5rem, 6vw, 4rem);
+    align-items: start;
+  }
+  .calc-head { margin-bottom: 0; }
+
+  .calc-card {
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+  }
+  .calc-label {
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    display: block;
+  }
+  #proyecto-valor {
+    width: 100%;
+    margin-top: 1rem;
+    accent-color: var(--signal);
+  }
+  .calc-range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    margin-top: 0.4rem;
+  }
+  .calc-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 1.4rem;
+    margin-top: 1.4rem;
+    border-top: 1px solid var(--line);
+  }
+  .calc-result-commission {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0.6rem;
+  }
+  .calc-result-label {
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+  }
+  .calc-result-value {
+    font-family: var(--f-display);
+    font-size: 1.4rem;
+  }
+  .calc-result-commission .calc-result-value {
+    font-size: 2rem;
+    color: var(--brass);
+  }
+  .full { width: 100%; justify-content: center; margin-top: 1.6rem; }
+
+  .tier-card { text-align: left; position: relative; }
+  .tier-card.featured {
+    border-color: var(--brass);
+    background: linear-gradient(180deg, var(--brass-soft), var(--surface) 40%);
+  }
+  .badge {
+    position: absolute;
+    top: -0.8rem;
+    right: 1.5rem;
+    background: var(--brass);
+    color: var(--bg);
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.35em 0.7em;
+    border-radius: 3px;
+  }
+  .tier-audience {
+    margin-top: 0.9rem;
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+  }
+  .tier-card .rule { margin: 1.3rem 0; }
+  .tier-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .tier-card li {
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    padding-left: 1.1em;
+    position: relative;
+  }
+  .tier-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    background: var(--signal);
+    border-radius: 1px;
+  }
+  .tier-unlock {
+    margin-top: 1.2rem;
+    font-family: var(--f-mono);
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+  }
+
+  .rule-card { text-align: left; }
+  .rule-card h3 { font-size: 1.05rem; }
+  .rule-card p {
+    margin-top: 0.7rem;
+    color: var(--ink-dim);
+    font-size: 0.92rem;
+  }
+
+  .registro-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+  }
+  .registro-copy h2 {
+    font-size: clamp(1.9rem, 3.6vw, 2.5rem);
+    margin-top: 0.7rem;
+  }
+  .registro-copy p {
+    margin-top: 1.1rem;
+    color: var(--ink-dim);
+    font-size: 1.05rem;
+    max-width: 40ch;
+  }
+  .registro-direct {
+    margin-top: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .direct-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .direct-item:last-child { border-bottom: none; }
+  .direct-item span:last-child {
+    font-family: var(--f-display);
+    font-size: 1.1rem;
+  }
+  .direct-item:is(a):hover span:last-child { color: var(--signal); }
+
+  .registro-form {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(1.75rem, 3vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+  }
+  .hidden-field { position: absolute; left: -9999px; }
+  .field { display: flex; flex-direction: column; gap: 0.5rem; }
+  .field label {
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+  }
+  .field input,
+  .field select {
+    background: var(--bg-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    color: var(--ink);
+    font-family: var(--f-body);
+    font-size: 0.95rem;
+    padding: 0.75em 0.9em;
+  }
+  .field input:focus,
+  .field select:focus {
+    outline: none;
+    border-color: var(--signal);
+  }
+
+  @media (max-width: 860px) {
+    .partners-hero-grid { grid-template-columns: 1fr; }
+    .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    .calc-grid { grid-template-columns: 1fr; }
+    .registro-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .steps-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const slider = document.getElementById('proyecto-valor') as HTMLInputElement | null;
+  const valorEl = document.getElementById('valor-proyecto');
+  const comisionEl = document.getElementById('valor-comision');
+
+  const formatCOP = (n: number) =>
+    new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(n);
+
+  const update = () => {
+    if (!slider || !valorEl || !comisionEl) return;
+    const valor = Number(slider.value);
+    const comision = valor * 0.15;
+    valorEl.textContent = formatCOP(valor);
+    comisionEl.textContent = formatCOP(comision);
+  };
+
+  slider?.addEventListener('input', update);
+  update();
+</script>
