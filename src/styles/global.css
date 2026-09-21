@@ -8,10 +8,42 @@
 
 @font-face {
   font-family: 'Fraunces';
-  src: url('https://fonts.gstatic.com/s/fraunces/v31/6NUh8FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8V6NLg.woff2') format('woff2');
-  font-weight: 300 700;
+  src: url('/fonts/fraunces.woff2') format('woff2');
+  font-weight: 300 600;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/fonts/fraunces-italic.woff2') format('woff2');
+  font-weight: 400 500;
+  font-style: italic;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/inter.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/ibm-plex-mono-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: optional;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/ibm-plex-mono-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: optional;
 }
 
 :root {
@@ -26,7 +58,7 @@
   /* ink */
   --ink: #eeeae0;
   --ink-dim: #b7bcc6;
-  --ink-faint: #757c8a;
+  --ink-faint: #878e9b;
 
   /* accents */
   --brass: #c9a15a;
