@@ -200,6 +200,47 @@ const needs = [
 
   <hr class="rule wrap" />
 
+  <!-- PROYECTOS -->
+  <section class="section projects-preview">
+    <div class="wrap projects-preview-grid">
+      <div class="section-head">
+        <span class="eyebrow">Trabajo reciente</span>
+        <h2>Soluciones construidas para negocios reales.</h2>
+        <p>
+          Conoce cómo hemos aplicado desarrollo web, rediseño y automatización
+          en salud, energía y hotelería.
+        </p>
+        <a href="/proyectos" class="btn btn-ghost projects-cta">
+          Ver proyectos <span class="btn-arrow">→</span>
+        </a>
+      </div>
+      <div class="projects-preview-list">
+        <a href="/proyectos#regenerate" class="preview-project">
+          <span class="tag">Salud y bienestar</span>
+          <strong>Regenerate Colombia</strong>
+          <span>Sitio creado desde cero</span>
+        </a>
+        <a href="/proyectos#wellview" class="preview-project">
+          <span class="tag">Servicios de salud</span>
+          <strong>WellView Care</strong>
+          <span>Rediseño y rendimiento web</span>
+        </a>
+        <a href="/proyectos#energy" class="preview-project">
+          <span class="tag">Energía e ingeniería</span>
+          <strong>Eficiencia Energética Aplicada</strong>
+          <span>Sitio creado desde cero</span>
+        </a>
+        <a href="/proyectos#hotel" class="preview-project">
+          <span class="tag">Hotelería</span>
+          <strong>Hotel Campestre Real</strong>
+          <span>Automatización de registros</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
   <!-- PRECIOS PREVIEW -->
   <section class="section">
     <div class="wrap">
@@ -379,6 +420,28 @@ const needs = [
   }
   .precios-link a { color: var(--brass); font-weight: 600; }
 
+  .projects-preview-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(2.5rem, 7vw, 6rem);
+    align-items: start;
+  }
+  .projects-preview-grid .section-head { margin-bottom: 0; }
+  .projects-cta { margin-top: 1.8rem; }
+  .projects-preview-list { border-top: 1px solid var(--line); }
+  .preview-project {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.18s ease, transform 0.18s ease;
+  }
+  .preview-project:hover { color: var(--signal); transform: translateX(0.5rem); }
+  .preview-project strong { font-family: var(--f-display); font-size: 1.08rem; font-weight: 500; }
+  .preview-project > span:last-child { color: var(--ink-faint); font-size: 0.82rem; }
+
   .about-grid {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -415,5 +478,10 @@ const needs = [
     .case-stats { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 1.6rem; flex-direction: row; flex-wrap: wrap; }
     .about-grid { grid-template-columns: 1fr; }
     .about-facts { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 1.8rem; flex-direction: row; flex-wrap: wrap; }
+    .projects-preview-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 620px) {
+    .preview-project { grid-template-columns: 1fr; gap: 0.35rem; }
   }
 </style>

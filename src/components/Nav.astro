@@ -2,11 +2,12 @@
 const links = [
   { href: '/', label: 'Inicio' },
   { href: '/servicios', label: 'Servicios' },
+  { href: '/proyectos', label: 'Proyectos' },
   { href: '/precios', label: 'Precios' },
   { href: '/partners', label: 'Partners' },
   { href: '/nosotros', label: 'Nosotros' },
 ];
-const path = Astro.url.pathname;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <header class="nav">
@@ -18,7 +19,7 @@ const path = Astro.url.pathname;
 
     <nav class="links" aria-label="Navegación principal">
       {links.map((l) => (
-        <a href={l.href} class={path === l.href ? 'active' : ''}>{l.label}</a>
+        <a href={l.href} class={path === l.href ? 'active' : ''} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a>
       ))}
     </nav>
 
@@ -29,10 +30,10 @@ const path = Astro.url.pathname;
     </button>
   </div>
 
-  <div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" inert>
     <nav aria-label="Navegación móvil">
       {links.map((l) => (
-        <a href={l.href}>{l.label}</a>
+        <a href={l.href} class={path === l.href ? 'active' : ''} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a>
       ))}
       <a href="/contacto" class="btn btn-primary">Hablemos de tu proyecto</a>
     </nav>
@@ -103,30 +104,45 @@ const path = Astro.url.pathname;
 
   .mobile-menu {
     display: none;
-    max-height: 0;
-    overflow: hidden;
+    grid-template-rows: 0fr;
+    visibility: hidden;
+    pointer-events: none;
     border-bottom: 1px solid var(--line);
-    transition: max-height 0.25s ease;
+    transition: grid-template-rows 0.25s ease, visibility 0s linear 0.25s;
   }
-  .mobile-menu.open { max-height: 400px; }
+  .mobile-menu.open {
+    grid-template-rows: 1fr;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
   .mobile-menu nav {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    padding: 0.5rem var(--pad) 1.5rem;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0 var(--pad);
   }
+  .mobile-menu.open nav { padding-top: 0.5rem; padding-bottom: 1.5rem; }
   .mobile-menu a {
     padding: 0.85rem 0;
     font-size: 1rem;
     color: var(--ink-dim);
     border-bottom: 1px solid var(--line);
   }
-  .mobile-menu .btn { margin-top: 1rem; justify-content: center; border-bottom: none; }
+  .mobile-menu a.active { color: var(--ink); }
+  .mobile-menu .btn {
+    margin-top: 1rem;
+    justify-content: center;
+    border-bottom: none;
+    color: var(--bg);
+  }
 
-  @media (max-width: 860px) {
+  @media (max-width: 1050px) {
     .links, .nav-cta { display: none; }
     .menu-btn { display: flex; }
-    .mobile-menu { display: block; }
+    .mobile-menu { display: grid; }
   }
 </style>
 
@@ -137,5 +153,9 @@ const path = Astro.url.pathname;
     const isOpen = menu?.classList.toggle('open');
     btn.classList.toggle('open');
     btn.setAttribute('aria-expanded', String(!!isOpen));
+    btn.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    menu?.setAttribute('aria-hidden', String(!isOpen));
+    if (isOpen) menu?.removeAttribute('inert');
+    else menu?.setAttribute('inert', '');
   });
 </script>

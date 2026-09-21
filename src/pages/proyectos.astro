@@ -1,0 +1,423 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTASection from '../components/CTASection.astro';
+
+const projects = [
+  {
+    slug: 'regenerate',
+    sector: 'Salud y bienestar',
+    title: 'Regenerate Colombia',
+    summary: 'Una presencia digital creada desde cero para explicar una propuesta de bienestar especializada con claridad, confianza y una experiencia de consulta cuidada.',
+    challenge: 'Organizar servicios, metodología y preguntas frecuentes en un recorrido comprensible para personas que evalúan dar su primer paso.',
+    solution: 'Diseñamos y desarrollamos una landing completa que presenta la oferta, orienta al visitante y facilita la solicitud de una consulta desde cualquier dispositivo.',
+    deliverables: ['Estrategia de contenido', 'Diseño y desarrollo web', 'Experiencia responsive', 'Formulario de consulta'],
+    website: 'https://regenerate-colombia.vercel.app',
+    repository: 'https://github.com/iamFear/regenerate-colombia',
+    cta: 'Visitar Regenerate Colombia',
+  },
+  {
+    slug: 'wellview',
+    sector: 'Servicios de salud',
+    title: 'WellView Care',
+    summary: 'Un rediseño integral para modernizar la experiencia digital de una organización de salud y lograr una navegación rápida, clara y confiable.',
+    challenge: 'Actualizar un sitio anterior para comunicar servicios sensibles con una jerarquía más clara y un rendimiento sólido en navegadores modernos.',
+    solution: 'Rediseñamos la interfaz, reorganizamos el contenido y construimos una experiencia web adaptable que ayuda a encontrar servicios, información y canales de contacto con menos fricción.',
+    deliverables: ['Rediseño de experiencia', 'Arquitectura de contenido', 'Desarrollo web', 'Optimización de rendimiento'],
+    website: 'https://wellview-care.vercel.app',
+    repository: 'https://github.com/iamFear/wellview-care',
+    cta: 'Visitar WellView Care',
+  },
+  {
+    slug: 'energy',
+    sector: 'Energía e ingeniería',
+    title: 'Eficiencia Energética Aplicada',
+    summary: 'Un sitio construido desde cero para convertir una oferta técnica en una presentación clara para hogares, instituciones y empresas.',
+    challenge: 'Explicar servicios de eficiencia energética a públicos distintos sin perder precisión ni hacer que la información se sintiera compleja.',
+    solution: 'Creamos una experiencia digital que estructura la propuesta por necesidades, presenta el enfoque de ingeniería y facilita el contacto con la empresa.',
+    deliverables: ['Estrategia de contenido', 'Diseño y desarrollo web', 'Presentación de servicios', 'Experiencia responsive'],
+    website: 'https://eficiencia-energetica-aplicada.vercel.app',
+    repository: 'https://github.com/iamFear/eficiencia-energetica-aplicada',
+    cta: 'Visitar Eficiencia Energética Aplicada',
+  },
+  {
+    slug: 'hotel',
+    sector: 'Hotelería y automatización',
+    title: 'Hotel Campestre Real',
+    summary: 'Una automatización que transforma cada registro del sitio en información organizada y una alerta inmediata para el administrador.',
+    challenge: 'Evitar que las solicitudes enviadas desde la página dependieran de una revisión manual constante o quedaran dispersas.',
+    solution: 'Conectamos el formulario con una base de datos y un flujo de notificación por WhatsApp. Cada nuevo registro queda almacenado y el administrador recibe el aviso para continuar el seguimiento.',
+    deliverables: ['Automatización de formulario', 'Registro en base de datos', 'Notificaciones por WhatsApp', 'Flujo de seguimiento'],
+    website: 'https://hotelcampestrereal.com/',
+    repository: null,
+    cta: 'Visitar Hotel Campestre Real',
+  },
+];
+---
+
+<Layout
+  title="Proyectos"
+  description="Conoce proyectos de desarrollo web y automatización creados por Astodev para empresas de salud, energía y hotelería."
+>
+  <section class="projects-hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Tecnología que ya está trabajando para otros negocios.</h1>
+      </div>
+      <div class="hero-copy">
+        <p>
+          Diseñamos sitios, renovamos experiencias digitales y automatizamos procesos.
+          Estos proyectos muestran cómo convertimos una necesidad de negocio en una
+          solución clara, funcional y lista para usarse.
+        </p>
+        <a href="#casos" class="text-link">Explorar proyectos <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+    <div class="wrap sector-line" aria-label="Sectores representados">
+      <span>Salud</span>
+      <span>Energía</span>
+      <span>Hotelería</span>
+      <span>Automatización</span>
+    </div>
+  </section>
+
+  <section class="projects-list" id="casos" aria-label="Proyectos desarrollados">
+    {projects.map((project, index) => (
+      <article class={`project ${index % 2 ? 'reverse' : ''}`} id={project.slug}>
+        <div class="wrap project-grid">
+          <div class="project-copy">
+            <p class="sector">{project.sector}</p>
+            <h2>{project.title}</h2>
+            <p class="summary">{project.summary}</p>
+
+            <dl class="project-story">
+              <div>
+                <dt>El reto</dt>
+                <dd>{project.challenge}</dd>
+              </div>
+              <div>
+                <dt>Lo que hicimos</dt>
+                <dd>{project.solution}</dd>
+              </div>
+            </dl>
+
+            <ul class="deliverables" aria-label="Alcance del proyecto">
+              {project.deliverables.map((item) => <li>{item}</li>)}
+            </ul>
+
+            <div class="project-actions">
+              <a class="btn btn-primary" href={project.website} target="_blank" rel="noopener noreferrer">
+                {project.cta} <span aria-hidden="true">↗</span>
+              </a>
+              {project.repository && (
+                <a class="source-link" href={project.repository} target="_blank" rel="noopener noreferrer">
+                  Ver repositorio <span aria-hidden="true">↗</span>
+                </a>
+              )}
+            </div>
+          </div>
+
+          <div class={`project-visual ${project.slug}`} aria-hidden="true">
+            <div class="browser-bar"><span></span><span></span><span></span></div>
+            {project.slug === 'regenerate' && (
+              <div class="health-screen regenerate-screen">
+                <p>Bienestar con intención.</p>
+                <div class="editorial-line"></div>
+                <div class="editorial-line short"></div>
+                <div class="consultation">Consulta personalizada</div>
+              </div>
+            )}
+            {project.slug === 'wellview' && (
+              <div class="health-screen wellview-screen">
+                <p>Care that meets you where you are.</p>
+                <div class="service-row"><span>Testing</span><span>Prevention</span><span>Treatment</span></div>
+                <div class="performance-line"><i></i><span>Responsive experience</span></div>
+              </div>
+            )}
+            {project.slug === 'energy' && (
+              <div class="energy-screen">
+                <p>Ingeniería para usar mejor la energía.</p>
+                <div class="energy-bars"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="energy-scope"><span>Hogares</span><span>Instituciones</span><span>Empresas</span></div>
+              </div>
+            )}
+            {project.slug === 'hotel' && (
+              <div class="automation-screen">
+                <div class="flow-node"><span>01</span><strong>Formulario</strong><small>Nuevo registro</small></div>
+                <div class="flow-line"></div>
+                <div class="flow-node"><span>02</span><strong>Base de datos</strong><small>Información guardada</small></div>
+                <div class="flow-line"></div>
+                <div class="flow-node active"><span>03</span><strong>WhatsApp</strong><small>Administrador notificado</small></div>
+              </div>
+            )}
+          </div>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="work-principle">
+    <div class="wrap principle-grid">
+      <h2>Distintos sectores.<br /><em>La misma forma de trabajar.</em></h2>
+      <p>
+        Entendemos el problema, ordenamos la información y construimos la solución
+        alrededor de las personas que van a usarla. La tecnología cambia; el foco
+        en el negocio se mantiene.
+      </p>
+    </div>
+  </section>
+
+  <CTASection
+    title="¿Qué podríamos construir para tu negocio?"
+    text="Cuéntanos qué quieres mejorar. Revisamos tu caso y te proponemos un punto de partida claro."
+  />
+</Layout>
+
+<style>
+  .projects-hero {
+    padding: clamp(4rem, 9vw, 7rem) 0 0;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: clamp(2.5rem, 7vw, 7rem);
+    align-items: end;
+  }
+  .hero-grid h1 {
+    max-width: 15ch;
+    font-size: clamp(2.8rem, 6.5vw, 5rem);
+  }
+  .hero-copy p {
+    color: var(--ink-dim);
+    font-size: 1.05rem;
+    max-width: 45ch;
+  }
+  .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 1.8rem;
+    color: var(--signal);
+    font-weight: 600;
+  }
+  .text-link span { transition: transform 0.2s ease; }
+  .text-link:hover span { transform: translateY(3px); }
+  .sector-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 2rem;
+    margin-top: clamp(3rem, 7vw, 6rem);
+    padding-block: 1.1rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-faint);
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .sector-line span + span::before {
+    content: '·';
+    margin-right: 2rem;
+    color: var(--brass);
+  }
+  .projects-list { border-top: 1px solid var(--line); }
+  .project {
+    padding: clamp(4rem, 9vw, 7rem) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .project:nth-child(even) { background: var(--bg-raised); }
+  .project-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: center;
+  }
+  .project.reverse .project-copy { order: 2; }
+  .project.reverse .project-visual { order: 1; }
+  .sector {
+    color: var(--signal);
+    font-family: var(--f-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .project-copy h2 {
+    margin-top: 0.75rem;
+    font-size: clamp(2.1rem, 4vw, 3.3rem);
+  }
+  .summary {
+    margin-top: 1.2rem;
+    color: var(--ink-dim);
+    font-size: 1.08rem;
+    max-width: 52ch;
+  }
+  .project-story {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .project-story dt {
+    color: var(--brass);
+    font-family: var(--f-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .project-story dd {
+    margin: 0.65rem 0 0;
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+  }
+  .deliverables {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.6rem;
+  }
+  .deliverables li {
+    padding: 0.45rem 0.65rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 3px;
+    color: var(--ink-faint);
+    font-size: 0.75rem;
+  }
+  .project-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.4rem;
+    margin-top: 2rem;
+  }
+  .source-link {
+    color: var(--ink-dim);
+    font-size: 0.88rem;
+    text-decoration: underline;
+    text-decoration-color: var(--line-strong);
+    text-underline-offset: 0.35em;
+  }
+  .source-link:hover { color: var(--signal); }
+  .project-visual {
+    min-height: 430px;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  .browser-bar {
+    display: flex;
+    gap: 6px;
+    height: 42px;
+    align-items: center;
+    padding-inline: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .browser-bar span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ink-faint);
+    opacity: 0.45;
+  }
+  .health-screen, .energy-screen, .automation-screen {
+    min-height: 387px;
+    padding: clamp(2rem, 5vw, 4rem);
+  }
+  .regenerate-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #f0ebe2;
+    color: #26372e;
+  }
+  .regenerate-screen p, .wellview-screen p, .energy-screen p {
+    max-width: 12ch;
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.02;
+  }
+  .editorial-line {
+    width: 75%;
+    height: 1px;
+    margin-top: 2rem;
+    background: rgba(38, 55, 46, 0.35);
+  }
+  .editorial-line.short { width: 48%; margin-top: 0.65rem; }
+  .consultation {
+    align-self: flex-start;
+    margin-top: 2rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(38, 55, 46, 0.5);
+    font-size: 0.8rem;
+  }
+  .wellview-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #f4f7fb;
+    color: #14325b;
+  }
+  .service-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-block: 1px solid rgba(20, 50, 91, 0.2);
+  }
+  .service-row span { padding: 1rem 0.5rem; font-size: 0.76rem; }
+  .performance-line { display: flex; align-items: center; gap: 0.7rem; font-size: 0.75rem; }
+  .performance-line i { width: 9px; height: 9px; border-radius: 50%; background: #40af96; }
+  .energy-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #e8efe4;
+    color: #27372b;
+  }
+  .energy-bars { display: flex; align-items: end; gap: 0.65rem; height: 115px; }
+  .energy-bars span { flex: 1; background: #759554; }
+  .energy-bars span:nth-child(1) { height: 80%; }
+  .energy-bars span:nth-child(2) { height: 58%; }
+  .energy-bars span:nth-child(3) { height: 42%; }
+  .energy-bars span:nth-child(4) { height: 30%; }
+  .energy-bars span:nth-child(5) { height: 18%; background: #c39a49; }
+  .energy-scope { display: flex; justify-content: space-between; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .automation-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .flow-node {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 0.2rem 1rem;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--line-strong);
+    background: var(--bg-raised);
+  }
+  .flow-node > span { grid-row: span 2; color: var(--brass); font-family: var(--f-mono); font-size: 0.75rem; }
+  .flow-node strong { font-weight: 500; }
+  .flow-node small { color: var(--ink-faint); }
+  .flow-node.active { border-color: var(--signal); background: var(--signal-soft); }
+  .flow-line { width: 1px; height: 26px; margin: 0 auto; background: var(--signal); }
+  .work-principle { padding: clamp(4rem, 9vw, 7rem) 0; }
+  .principle-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: end; }
+  .principle-grid h2 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); }
+  .principle-grid h2 em { color: var(--brass); font-weight: 400; }
+  .principle-grid p { color: var(--ink-dim); max-width: 48ch; }
+
+  @media (max-width: 900px) {
+    .hero-grid, .project-grid, .principle-grid { grid-template-columns: 1fr; }
+    .project.reverse .project-copy, .project.reverse .project-visual { order: initial; }
+    .project-visual { min-height: 360px; }
+    .health-screen, .energy-screen, .automation-screen { min-height: 317px; }
+  }
+  @media (max-width: 560px) {
+    .project-story { grid-template-columns: 1fr; }
+    .project-visual { min-height: 320px; }
+    .health-screen, .energy-screen, .automation-screen { min-height: 277px; padding: 1.5rem; }
+    .sector-line { gap: 0.5rem 1rem; }
+    .sector-line span + span::before { margin-right: 1rem; }
+    .project-actions .btn { width: 100%; justify-content: center; white-space: normal; text-align: center; }
+  }
+</style>
