@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://astodev.netlify.app/</loc></url>
-  <url><loc>https://astodev.netlify.app/servicios</loc></url>
-  <url><loc>https://astodev.netlify.app/proyectos</loc></url>
-  <url><loc>https://astodev.netlify.app/precios</loc></url>
-  <url><loc>https://astodev.netlify.app/partners</loc></url>
-  <url><loc>https://astodev.netlify.app/nosotros</loc></url>
-  <url><loc>https://astodev.netlify.app/contacto</loc></url>
+  <url><loc>https://astodev.com/</loc></url>
+  <url><loc>https://astodev.com/servicios/</loc></url>
+  <url><loc>https://astodev.com/proyectos/</loc></url>
+  <url><loc>https://astodev.com/precios/</loc></url>
+  <url><loc>https://astodev.com/partners/</loc></url>
+  <url><loc>https://astodev.com/nosotros/</loc></url>
+  <url><loc>https://astodev.com/contacto/</loc></url>
 </urlset>

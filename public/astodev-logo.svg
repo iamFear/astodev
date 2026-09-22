@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Astodev</title>
+  <rect width="512" height="512" rx="96" fill="#0b0e13"/>
+  <rect x="132" y="132" width="144" height="144" rx="28" fill="#3fbfa0"/>
+  <rect x="236" y="236" width="144" height="144" rx="28" fill="#c9a15a"/>
+</svg>

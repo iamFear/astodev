@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Astodev</title>
+  <desc id="description">Software, automatización y soluciones digitales</desc>
+  <rect width="1200" height="630" fill="#0b0e13"/>
+  <circle cx="1050" cy="-40" r="330" fill="#3fbfa0" opacity="0.08"/>
+  <circle cx="80" cy="650" r="300" fill="#c9a15a" opacity="0.07"/>
+  <rect x="92" y="115" width="76" height="76" rx="15" fill="#3fbfa0"/>
+  <rect x="146" y="169" width="76" height="76" rx="15" fill="#c9a15a"/>
+  <text x="92" y="380" fill="#eeeae0" font-family="Georgia, serif" font-size="112" font-weight="500">Astodev</text>
+  <text x="98" y="462" fill="#b7bcc6" font-family="Arial, sans-serif" font-size="34">Software · Automatización · Digital</text>
+  <text x="98" y="530" fill="#3fbfa0" font-family="monospace" font-size="24" letter-spacing="4">MEDELLÍN · COLOMBIA</text>
+</svg>

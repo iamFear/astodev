@@ -3,7 +3,10 @@ import Layout from '../layouts/Layout.astro';
 import CTASection from '../components/CTASection.astro';
 ---
 
-<Layout title="Nosotros" description="Conoce a Astodev: consultora tecnológica colombiana enfocada en desarrollo web, software, automatización y e-commerce.">
+<Layout
+  title="Sobre Astodev | Empresa de Software en Medellín"
+  description="Conoce Astodev, empresa de desarrollo de software fundada en Medellín por Daniel Burgoa. Creamos automatizaciones y soluciones digitales para empresas."
+>
   <section class="page-hero">
     <div class="wrap">
       <span class="eyebrow">Sobre Astodev</span>
@@ -44,6 +47,36 @@ import CTASection from '../components/CTASection.astro';
           <span class="tag">Visión</span>
           <p>Convertirnos en una de las empresas de tecnología más reconocidas de Latinoamérica por crear soluciones digitales que generan resultados reales para nuestros clientes.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
+
+  <section class="section founder-section" id="daniel-burgoa" aria-labelledby="founder-name">
+    <div class="wrap founder-grid">
+      <figure class="founder-portrait">
+        <img
+          src="/daniel-burgoa.webp"
+          width="400"
+          height="400"
+          alt="Daniel Burgoa, fundador y CEO de Astodev"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption class="founder-company">Astodev · Medellín</figcaption>
+      </figure>
+      <div class="founder-copy">
+        <span class="eyebrow">Liderazgo</span>
+        <h2 id="founder-name">Daniel Burgoa</h2>
+        <p class="founder-role">Founder &amp; CEO de Astodev</p>
+        <p>
+          Daniel Burgoa es fundador y CEO de Astodev, consultora tecnológica
+          con sede en Medellín, Colombia. Desde Astodev lidera el desarrollo de
+          soluciones de software, automatización y productos digitales
+          orientados a ayudar a las empresas a optimizar sus operaciones y
+          crecer mediante tecnología.
+        </p>
       </div>
     </div>
   </section>
@@ -150,6 +183,54 @@ import CTASection from '../components/CTASection.astro';
     font-size: 0.95rem;
   }
 
+  .founder-grid {
+    display: grid;
+    grid-template-columns: 0.72fr 1.28fr;
+    gap: clamp(2rem, 7vw, 5rem);
+    align-items: center;
+  }
+  .founder-portrait {
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .founder-portrait img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+  .founder-company {
+    display: block;
+    padding: 0.9rem 1rem;
+    border-top: 1px solid var(--line);
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--signal);
+  }
+  .founder-copy h2 {
+    margin-top: 0.8rem;
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+  .founder-role {
+    margin-top: 0.45rem;
+    font-family: var(--f-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    color: var(--brass);
+  }
+  .founder-copy > p:last-child {
+    margin-top: 1.3rem;
+    max-width: 60ch;
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+  }
+
   .ladder {
     display: flex;
     flex-direction: column;
@@ -184,5 +265,7 @@ import CTASection from '../components/CTASection.astro';
 
   @media (max-width: 820px) {
     .story-grid { grid-template-columns: 1fr; }
+    .founder-grid { grid-template-columns: 1fr; }
+    .founder-portrait { max-width: 400px; }
   }
 </style>

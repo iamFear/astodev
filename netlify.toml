@@ -4,3 +4,9 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+[[redirects]]
+  from = "https://astodev.netlify.app/*"
+  to = "https://astodev.com/:splat"
+  status = 301
+  force = true
