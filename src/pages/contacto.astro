@@ -29,8 +29,6 @@ import Layout from '../layouts/Layout.astro';
       <form
         name="contacto"
         method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
         action="/gracias"
         class="contact-form"
       >
@@ -168,3 +166,49 @@ import Layout from '../layouts/Layout.astro';
     .contact-grid { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>(
+    'form[name="contacto"]'
+  );
+
+  if (form) {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const button = form.querySelector<HTMLButtonElement>(
+        'button[type="submit"]'
+      );
+      const originalButtonContent = button?.innerHTML;
+
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Enviando…';
+        button.setAttribute('aria-busy', 'true');
+      }
+
+      try {
+        await fetch(
+          'https://hook.us2.make.com/h3jfob24c4o7cix6oqs3rixsw0x3g0g7',
+          {
+            method: 'POST',
+            // mode: 'no-cors',
+            body: new FormData(form),
+          }
+        );
+
+        window.location.assign('/gracias');
+      } catch (error) {
+        console.error('Error enviando el formulario:', error);
+
+        if (button) {
+          button.disabled = false;
+          button.removeAttribute('aria-busy');
+          if (originalButtonContent) button.innerHTML = originalButtonContent;
+        }
+
+        alert('No fue posible enviar el formulario. Inténtalo nuevamente.');
+      }
+    });
+  }
+</script>
