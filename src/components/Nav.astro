@@ -1,20 +1,22 @@
 ---
 const links = [
   { href: '/', label: 'Inicio' },
-  { href: '/servicios', label: 'Servicios' },
-  { href: '/proyectos', label: 'Proyectos' },
-  { href: '/precios', label: 'Precios' },
-  { href: '/partners', label: 'Partners' },
-  { href: '/nosotros', label: 'Nosotros' },
+  { href: '/servicios/', label: 'Servicios' },
+  { href: '/proyectos/', label: 'Proyectos' },
+  { href: '/precios/', label: 'Precios' },
+  { href: '/partners/', label: 'Partners' },
+  { href: '/nosotros/', label: 'Nosotros' },
 ];
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path = Astro.url.pathname === '/'
+  ? '/'
+  : `${Astro.url.pathname.replace(/\/+$/, '')}/`;
 ---
 
 <header class="nav">
   <div class="wrap nav-inner">
     <a href="/" class="logo">
       <span class="logo-mark" aria-hidden="true"></span>
-      ASTODEV
+      Astodev
     </a>
 
     <nav class="links" aria-label="Navegación principal">
@@ -23,7 +25,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
       ))}
     </nav>
 
-    <a href="/contacto" class="btn btn-primary nav-cta">Hablemos de tu proyecto</a>
+    <a href="/contacto/" class="btn btn-primary nav-cta">Hablemos de tu proyecto</a>
 
     <button class="menu-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
@@ -35,7 +37,7 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
       {links.map((l) => (
         <a href={l.href} class={path === l.href ? 'active' : ''} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a>
       ))}
-      <a href="/contacto" class="btn btn-primary">Hablemos de tu proyecto</a>
+      <a href="/contacto/" class="btn btn-primary">Hablemos de tu proyecto</a>
     </nav>
   </div>
 </header>

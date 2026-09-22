@@ -6,12 +6,92 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = 'Astodev es una consultora tecnológica en Medellín, Colombia. Construimos software, automatización, e-commerce y sistemas digitales que hacen crecer tu negocio.',
+  noindex = false,
 } = Astro.props;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://astodev.com';
+const normalizedPath = Astro.url.pathname === '/'
+  ? '/'
+  : `${Astro.url.pathname.replace(/\/+$/, '')}/`;
+const canonicalUrl = new URL(normalizedPath, siteUrl).toString();
+const pageTitle = title.includes('Astodev') ? title : `${title} · Astodev`;
+const isEntityPage = normalizedPath === '/' || normalizedPath === '/nosotros/';
+
+const entityGraph = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://astodev.com/#organization',
+      name: 'Astodev',
+      url: 'https://astodev.com/',
+      foundingDate: '2021',
+      description: 'Astodev es una empresa de desarrollo de software y consultoría tecnológica con sede en Medellín, Colombia. Desarrolla software, automatizaciones, soluciones web, e-commerce y productos digitales para empresas.',
+      logo: {
+        '@type': 'ImageObject',
+        '@id': 'https://astodev.com/#logo',
+        url: 'https://astodev.com/astodev-logo.svg',
+        contentUrl: 'https://astodev.com/astodev-logo.svg',
+        caption: 'Astodev',
+      },
+      email: 'mailto:ventas@astodev.com',
+      telephone: '+57 301 676 8911',
+      sameAs: [
+        'https://www.instagram.com/astodev.tech/',
+        'https://www.linkedin.com/company/146606682/',
+      ],
+      areaServed: {
+        '@type': 'Country',
+        name: 'Colombia',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Medellín',
+        addressRegion: 'Antioquia',
+        addressCountry: 'CO',
+      },
+      founder: {
+        '@id': 'https://astodev.com/#daniel-burgoa',
+      },
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://astodev.com/#daniel-burgoa',
+      name: 'Daniel Burgoa',
+      jobTitle: 'Founder & CEO',
+      url: 'https://astodev.com/nosotros/#daniel-burgoa',
+      image: {
+        '@type': 'ImageObject',
+        url: 'https://astodev.com/daniel-burgoa.webp',
+        contentUrl: 'https://astodev.com/daniel-burgoa.webp',
+        caption: 'Daniel Burgoa, fundador y CEO de Astodev',
+      },
+      homeLocation: {
+        '@type': 'Place',
+        name: 'Medellín, Colombia',
+      },
+      worksFor: {
+        '@id': 'https://astodev.com/#organization',
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://astodev.com/#website',
+      url: 'https://astodev.com/',
+      name: 'Astodev',
+      inLanguage: 'es-CO',
+      publisher: {
+        '@id': 'https://astodev.com/#organization',
+      },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -21,15 +101,33 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="description" content={description} />
-    <title>{title} · Astodev</title>
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <title>{pageTitle}</title>
 
     <link rel="preload" href="/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
 
-    <meta property="og:title" content={`${title} · Astodev`} />
+    <meta property="og:site_name" content="Astodev" />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:image" content="https://astodev.com/astodev-social.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Astodev — Software, automatización y soluciones digitales" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://astodev.com/astodev-social.png" />
+    <meta name="twitter:image:alt" content="Astodev — Software, automatización y soluciones digitales" />
     <meta name="theme-color" content="#0b0e13" />
+
+    {isEntityPage && (
+      <script type="application/ld+json" set:html={JSON.stringify(entityGraph)} />
+    )}
   </head>
   <body>
     <Nav />

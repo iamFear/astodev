@@ -21,7 +21,7 @@ const { tier, price, audience, items, cta, featured = false } = Astro.props;
   <ul>
     {items.map((item: string) => <li>{item}</li>)}
   </ul>
-  <a href="/contacto" class={`btn ${featured ? 'btn-primary' : 'btn-ghost'} full`}>{cta}</a>
+  <a href="/contacto/" class={`btn ${featured ? 'btn-primary' : 'btn-ghost'} full`}>{cta}</a>
 </div>
 
 <style>
