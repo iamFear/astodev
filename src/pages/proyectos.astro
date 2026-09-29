@@ -4,6 +4,18 @@ import CTASection from '../components/CTASection.astro';
 
 const projects = [
   {
+    slug: 'driven',
+    sector: 'Tienda online · Shopify',
+    title: 'Driven',
+    summary: 'Una tienda online completa para llevar la identidad de Driven a una experiencia de compra clara, rápida y preparada para administrar su operación desde Shopify.',
+    challenge: 'Reunir marca, catálogo y operación comercial en un solo canal digital que permitiera presentar colecciones y gestionar productos e inventario con facilidad.',
+    solution: 'Diseñamos y desarrollamos la tienda en Shopify, configuramos el catálogo, los productos, el inventario y los formularios para entregar una solución de comercio electrónico lista para operar.',
+    deliverables: ['Diseño y desarrollo', 'Tienda Shopify', 'Catálogo de productos', 'Gestión de inventario', 'Formularios'],
+    website: 'https://driven.com.co/',
+    repository: null,
+    cta: 'Visitar Driven',
+  },
+  {
     slug: 'regenerate',
     sector: 'Salud y bienestar',
     title: 'Regenerate Colombia',
@@ -56,7 +68,7 @@ const projects = [
 
 <Layout
   title="Proyectos"
-  description="Conoce proyectos de desarrollo web y automatización creados por Astodev para empresas de salud, energía y hotelería."
+  description="Conoce proyectos de tiendas Shopify, desarrollo web y automatización creados por Astodev para empresas de distintos sectores."
 >
   <section class="projects-hero">
     <div class="wrap hero-grid">
@@ -76,6 +88,7 @@ const projects = [
       <span>Salud</span>
       <span>Energía</span>
       <span>Hotelería</span>
+      <span>Tiendas online</span>
       <span>Automatización</span>
     </div>
   </section>
@@ -124,6 +137,24 @@ const projects = [
                 <div class="editorial-line"></div>
                 <div class="editorial-line short"></div>
                 <div class="consultation">Consulta personalizada</div>
+              </div>
+            )}
+            {project.slug === 'driven' && (
+              <div class="commerce-screen">
+                <div class="store-head">
+                  <span>Driven</span>
+                  <span>Catálogo · Colecciones</span>
+                </div>
+                <p>Velocidad, actitud y diseño en cada pieza.</p>
+                <div class="product-grid">
+                  <div><span>F1 Collection</span><strong>$120.900</strong></div>
+                  <div><span>Retro 90's</span><strong>$150.000</strong></div>
+                </div>
+                <div class="store-system">
+                  <span>Inventario conectado</span>
+                  <i></i>
+                  <span>Shopify</span>
+                </div>
               </div>
             )}
             {project.slug === 'wellview' && (
@@ -320,10 +351,64 @@ const projects = [
     background: var(--ink-faint);
     opacity: 0.45;
   }
-  .health-screen, .energy-screen, .automation-screen {
+  .health-screen, .energy-screen, .automation-screen, .commerce-screen {
     min-height: 387px;
     padding: clamp(2rem, 5vw, 4rem);
   }
+  .commerce-screen {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2.5vw, 1.65rem);
+    background: #ebe7df;
+    color: #151515;
+  }
+  .store-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(21, 21, 21, 0.2);
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .store-head span:first-child { font-weight: 700; }
+  .store-head span:last-child { text-align: right; }
+  .commerce-screen > p {
+    max-width: 13ch;
+    font-family: var(--f-display);
+    font-size: clamp(1.9rem, 3.5vw, 3rem);
+    line-height: 1.04;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+  .product-grid div {
+    min-height: 100px;
+    padding: 0.9rem;
+    background: #1a1a1a;
+    color: #f3f0e9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.25rem;
+  }
+  .product-grid span { font-size: 0.78rem; }
+  .product-grid strong { color: #d2b574; font-family: var(--f-mono); font-size: 0.7rem; font-weight: 500; }
+  .store-system {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: auto;
+    color: rgba(21, 21, 21, 0.68);
+    font-family: var(--f-mono);
+    font-size: 0.67rem;
+    text-transform: uppercase;
+  }
+  .store-system i { display: block; flex: 1; height: 1px; background: rgba(21, 21, 21, 0.25); }
   .regenerate-screen {
     display: flex;
     flex-direction: column;
@@ -410,12 +495,12 @@ const projects = [
     .hero-grid, .project-grid, .principle-grid { grid-template-columns: 1fr; }
     .project.reverse .project-copy, .project.reverse .project-visual { order: initial; }
     .project-visual { min-height: 360px; }
-    .health-screen, .energy-screen, .automation-screen { min-height: 317px; }
+    .health-screen, .energy-screen, .automation-screen, .commerce-screen { min-height: 317px; }
   }
   @media (max-width: 560px) {
     .project-story { grid-template-columns: 1fr; }
     .project-visual { min-height: 320px; }
-    .health-screen, .energy-screen, .automation-screen { min-height: 277px; padding: 1.5rem; }
+    .health-screen, .energy-screen, .automation-screen, .commerce-screen { min-height: 277px; padding: 1.5rem; }
     .sector-line { gap: 0.5rem 1rem; }
     .sector-line span + span::before { margin-right: 1rem; }
     .project-actions .btn { width: 100%; justify-content: center; white-space: normal; text-align: center; }
