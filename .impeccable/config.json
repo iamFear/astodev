@@ -1,0 +1,62 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "hero-eyebrow-chip",
+        "value": "*",
+        "files": [
+          "astodev - info/guia-de-marca-astodev.html"
+        ],
+        "createdAt": "2026-10-01T22:15:47.276Z",
+        "reason": "Agent: cover label identifies a brand-manual document section, not a conversion hero"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "astodev - info/guia-de-marca-astodev.html"
+        ],
+        "createdAt": "2026-10-01T22:15:47.474Z",
+        "reason": "Agent: printed logo samples are deliberately centered within large framed panels; type specimen rules have visible breathing room"
+      },
+      {
+        "rule": "all-caps-body",
+        "value": "*",
+        "files": [
+          "astodev - info/guia-de-marca-astodev.html"
+        ],
+        "createdAt": "2026-10-01T22:15:47.669Z",
+        "reason": "Agent: uppercase appears only in short brand-label and typography specimens"
+      },
+      {
+        "rule": "radial-spotlight-glow",
+        "value": "*",
+        "files": [
+          "astodev - info/guia-de-marca-astodev.html"
+        ],
+        "createdAt": "2026-10-01T22:15:47.861Z",
+        "reason": "Agent: subtle cover lighting reproduces the existing Astodev site background treatment"
+      },
+      {
+        "rule": "overused-font",
+        "value": "*",
+        "files": [
+          "astodev - info/guia-de-marca-astodev.html"
+        ],
+        "createdAt": "2026-10-01T22:15:48.057Z",
+        "reason": "Agent: this manual must display the Fraunces and Inter families already used by the Astodev website"
+      },
+      {
+        "rule": "kicker-above-heading",
+        "value": "*",
+        "files": [
+          "astodev - info/guia-de-marca-astodev.html"
+        ],
+        "createdAt": "2026-10-01T22:15:48.255Z",
+        "reason": "Agent: the page contains a deliberate example of the current Astodev interface, including its section label"
+      }
+    ]
+  }
+}

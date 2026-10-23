@@ -34,6 +34,41 @@ npm run build       # genera /dist
 npm run preview     # previsualiza el build de producción
 ```
 
+## Calidad de los pull requests
+
+El workflow `.github/workflows/lighthouse.yml` compila el sitio con Node.js 22 y audita
+la landing (`/`) en móvil y escritorio. Cada perfil ejecuta Lighthouse tres veces:
+**Performance, Accessibility, Best Practices y SEO deben obtener al menos 95/100
+en cada ejecución**. No se promedian categorías ni se permite compensar un fallo
+con una puntuación alta en otra categoría. Los informes HTML y JSON quedan como
+artefactos de GitHub Actions durante 14 días, incluso si falla la comprobación.
+
+Para impedir el merge de un PR que no cumpla el mínimo, después de la primera
+ejecución configura en GitHub **Settings → Rules → Rulesets** una regla activa
+para la rama de destino (o usa **Settings → Branches → Branch protection**):
+
+1. Exige pull requests y status checks antes del merge.
+2. Añade como checks obligatorios `Lighthouse (mobile)` y `Lighthouse (desktop)`.
+3. Exige que la rama esté actualizada antes del merge (o usa merge queue).
+4. No permitas bypass de estas reglas si el mínimo debe aplicarse a todos.
+
+El workflow por sí solo no cambia las reglas del repositorio ni bloquea la
+aprobación manual de un reviewer; los checks obligatorios bloquean el **merge**.
+Netlify conserva el despliegue existente al integrar los cambios en su rama de
+producción; no se necesitan tokens de despliegue para estas auditorías.
+
+Para reproducir las auditorías localmente, con Chrome instalado:
+
+```bash
+npm ci
+npm run build
+npm run lighthouse
+npm run lighthouse -- --collect.settings.preset=desktop
+```
+
+Si Chrome no se detecta automáticamente, define `CHROME_PATH` con la ruta de su
+ejecutable. La auditoría usa el build local del PR, no el sitio de producción.
+
 ## Desplegar en Netlify
 
 **Opción A — conectar el repositorio (recomendado):**

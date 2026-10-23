@@ -314,6 +314,12 @@ const needs = [
 </Layout>
 
 <style>
+  /* Defer off-screen layout and paint; retain each section's measured size once rendered. */
+  .section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+  }
+
   .hero {
     padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(2.5rem, 6vw, 4rem);
   }
