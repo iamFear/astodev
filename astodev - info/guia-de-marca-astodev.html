@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Guía de marca · Astodev</title>
+  <style>
+    @font-face { font-family: Inter; src: url('../public/fonts/inter.woff2') format('woff2'); font-weight: 400 700; }
+    @font-face { font-family: Fraunces; src: url('../public/fonts/fraunces.woff2') format('woff2'); font-weight: 300 600; }
+    @font-face { font-family: Fraunces; src: url('../public/fonts/fraunces-italic.woff2') format('woff2'); font-style: italic; font-weight: 400 500; }
+    @font-face { font-family: Plex; src: url('../public/fonts/ibm-plex-mono-400.woff2') format('woff2'); font-weight: 400; }
+    @font-face { font-family: Plex; src: url('../public/fonts/ibm-plex-mono-500.woff2') format('woff2'); font-weight: 500; }
+    @page { size: A4 landscape; margin: 0; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #0b0e13; color: #eeeae0; }
+    body { font-family: Inter, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .page { position: relative; width: 297mm; height: 210mm; padding: 18mm 20mm 16mm; overflow: hidden; page-break-after: always; background: #0b0e13; }
+    .page:last-child { page-break-after: auto; }
+    .light { background: #eeeae0; color: #0b0e13; }
+    .kicker { font: 500 10px Plex, monospace; letter-spacing: .17em; text-transform: uppercase; color: #3fbfa0; }
+    .light .kicker { color: #197a63; }
+    .page h1, .page h2, .page h3, .display { font-family: Fraunces, Georgia, serif; font-weight: 500; letter-spacing: -.025em; }
+    .page h1 { font-size: 76px; line-height: .98; margin: 0; }
+    .page h2 { font-size: 43px; line-height: 1.04; margin: 8mm 0 0; }
+    .page h3 { font-size: 23px; line-height: 1.13; margin: 0 0 4mm; }
+    .lead { font-size: 17px; line-height: 1.5; color: #b7bcc6; max-width: 79ch; }
+    .light .lead { color: #424b58; }
+    .small { font-size: 13px; line-height: 1.52; color: #b7bcc6; }
+    .light .small { color: #4d5560; }
+    .micro { font: 400 10px Plex, monospace; line-height: 1.45; color: #878e9b; }
+    .light .micro { color: #52606a; }
+    .rule { height: 1px; background: rgba(237,233,224,.16); }
+    .light .rule { background: rgba(11,14,19,.18); }
+    .footer { position: absolute; bottom: 9mm; left: 20mm; right: 20mm; display: flex; justify-content: space-between; align-items: center; font: 400 9px Plex, monospace; letter-spacing: .07em; text-transform: uppercase; color: #878e9b; }
+    .light .footer { color: #65707a; }
+    .mark { position: relative; flex: none; width: 50px; height: 50px; }
+    .mark::before, .mark::after { content: ''; display: block; position: absolute; width: 30px; height: 30px; border-radius: 6px; }
+    .mark::before { top: 3px; left: 3px; background: #3fbfa0; }
+    .mark::after { top: 18px; left: 18px; background: #c9a15a; }
+    .wordmark { display: inline-flex; align-items: center; gap: 17px; color: #eeeae0; font: 500 38px Plex, monospace; letter-spacing: .07em; }
+    .wordmark.dark { color: #0b0e13; }
+    .wordmark.mono .mark::before, .wordmark.mono .mark::after { background: currentColor; }
+    .panel { border: 1px solid rgba(237,233,224,.18); border-radius: 6px; background: #161b25; }
+    .light .panel { border-color: rgba(11,14,19,.18); background: #fffdf8; }
+    .badge { display: inline-block; padding: 5px 8px; font: 400 10px Plex, monospace; color: #3fbfa0; border: 1px solid rgba(63,191,160,.55); border-radius: 3px; }
+    .section-top { display: flex; justify-content: space-between; align-items: baseline; }
+    .section-top .micro { text-align: right; }
+    .columns-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16mm; }
+    .columns-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7mm; }
+    ul.clean { list-style: none; margin: 0; padding: 0; }
+    ul.clean li { padding: 10px 0; border-bottom: 1px solid rgba(237,233,224,.13); font-size: 13px; line-height: 1.45; }
+    .light ul.clean li { border-color: rgba(11,14,19,.13); }
+    .teal { color: #3fbfa0; } .brass { color: #c9a15a; }
+    /* 01 */
+    .cover { background: radial-gradient(circle at 90% 5%, rgba(63,191,160,.12), transparent 33%), radial-gradient(circle at 7% 95%, rgba(201,161,90,.11), transparent 34%), #0b0e13; }
+    .cover .hero-mark { width: 84px; height: 84px; }
+    .cover .hero-mark::before, .cover .hero-mark::after { width: 51px; height: 51px; border-radius: 11px; }
+    .cover .hero-mark::before { top: 0; left: 0; } .cover .hero-mark::after { top: 28px; left: 28px; }
+    .cover .cover-title { margin-top: 31mm; }
+    .cover .cover-title h1 { font-size: 89px; }
+    .cover .cover-title p { font-size: 21px; line-height: 1.4; max-width: 50ch; color: #b7bcc6; margin-top: 8mm; }
+    .cover .cover-side { position: absolute; right: 20mm; top: 20mm; width: 59mm; text-align: right; font: 400 11px Plex, monospace; line-height: 1.7; color: #878e9b; }
+    .cover .cover-line { position: absolute; left: 20mm; right: 20mm; bottom: 27mm; height: 1px; background: rgba(237,233,224,.22); }
+    /* 02 */
+    .manifest { margin-top: 14mm; display: grid; grid-template-columns: 1.25fr .75fr; gap: 20mm; }
+    .manifest blockquote { margin: 0; font: 500 43px/1.12 Fraunces, Georgia, serif; letter-spacing: -.025em; max-width: 17ch; }
+    .manifest aside { border-left: 1px solid #c9a15a; padding-left: 8mm; }
+    .manifest aside p { font-size: 14px; line-height: 1.56; color: #b7bcc6; margin: 0 0 8mm; }
+    .principles { margin-top: 15mm; display: grid; grid-template-columns: repeat(3,1fr); gap: 8mm; }
+    .principles article { border-top: 1px solid rgba(237,233,224,.2); padding-top: 5mm; }
+    .principles b { font: 500 11px Plex, monospace; color: #3fbfa0; }
+    .principles h3 { margin-top: 3mm; font-size: 20px; }
+    .principles p { font-size: 12px; line-height: 1.5; color: #b7bcc6; margin: 0; }
+    /* 03 */
+    .logo-grid { display: grid; grid-template-columns: 1.4fr .8fr; gap: 9mm; margin-top: 11mm; height: 82mm; }
+    .logo-show { display: flex; align-items: center; justify-content: center; }
+    .logo-show .wordmark { font-size: 42px; }
+    .logo-show .mark { transform: scale(1.3); margin-right: 10px; }
+    .logo-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0b0e13; }
+    .logo-tile .tile { position: relative; width: 95px; height: 95px; border-radius: 18px; background: #0b0e13; border: 1px solid rgba(237,233,224,.14); }
+    .logo-tile .tile::before, .logo-tile .tile::after { position: absolute; content: ''; width: 44px; height: 44px; border-radius: 9px; }
+    .logo-tile .tile::before { left: 24px; top: 24px; background: #3fbfa0; }
+    .logo-tile .tile::after { left: 44px; top: 44px; background: #c9a15a; }
+    .logo-notes { display: grid; grid-template-columns: repeat(3,1fr); gap: 10mm; margin-top: 10mm; }
+    .logo-notes p { margin: 3mm 0 0; font-size: 12px; line-height: 1.45; color: #b7bcc6; }
+    /* 04 */
+    .variant-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 46mm 46mm; gap: 5mm; margin-top: 10mm; }
+    .variant { position: relative; display: flex; align-items: center; justify-content: center; border-radius: 6px; }
+    .variant.dark { background: #161b25; border: 1px solid rgba(237,233,224,.14); }
+    .variant.lightv { background: #eeeae0; }
+    .variant.ink { background: #0b0e13; border: 1px solid rgba(237,233,224,.14); }
+    .variant.signal { background: #3fbfa0; }
+    .variant .wordmark { font-size: 27px; }
+    .variant .mark { transform: scale(.68); margin-right: -7px; }
+    .variant .label { position: absolute; left: 6mm; bottom: 4mm; font: 400 9px Plex, monospace; text-transform: uppercase; letter-spacing: .08em; color: #878e9b; }
+    .variant.lightv .label, .variant.signal .label { color: #3f4a4e; }
+    .variant .wordmark.mono { color: #eeeae0; }
+    .variant .wordmark.mono-dark { color: #0b0e13; }
+    .variant .wordmark.mono-dark .mark::before, .variant .wordmark.mono-dark .mark::after { background: #0b0e13; }
+    .variant-rules { display: grid; grid-template-columns: repeat(3,1fr); gap: 7mm; margin-top: 8mm; }
+    .variant-rules p { margin: 2mm 0 0; font-size: 11px; line-height: 1.4; color: #b7bcc6; }
+    /* 05 */
+    .palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4mm; margin-top: 11mm; }
+    .swatch { height: 63mm; border-radius: 5px; overflow: hidden; border: 1px solid rgba(237,233,224,.12); }
+    .swatch .chip { height: 39mm; }
+    .swatch .meta { padding: 5mm 4mm; background: #161b25; height: 24mm; }
+    .swatch .meta strong { display: block; font: 500 12px Plex, monospace; }
+    .swatch .meta span { display: block; margin-top: 2mm; font: 400 10px Plex, monospace; color: #b7bcc6; }
+    .palette-bottom { display: grid; grid-template-columns: repeat(3,1fr); gap: 8mm; margin-top: 13mm; }
+    .palette-bottom article { border-top: 1px solid rgba(237,233,224,.2); padding-top: 4mm; }
+    .palette-bottom p { margin: 3mm 0 0; font-size: 11px; line-height: 1.45; color: #b7bcc6; }
+    /* 06 */
+    .type-list { display: grid; grid-template-columns: 34mm 1fr 65mm; align-items: center; border-top: 1px solid rgba(11,14,19,.17); margin-top: 8mm; }
+    .type-row { display: contents; }
+    .type-row > * { padding: 6mm 0; border-bottom: 1px solid rgba(11,14,19,.17); }
+    .type-label { font: 500 10px Plex, monospace; text-transform: uppercase; letter-spacing: .07em; color: #53616b; }
+    .type-example { color: #0b0e13; }
+    .type-spec { font: 400 10px/1.4 Plex, monospace; color: #53616b; }
+    .type-example.display-example { font: 500 41px/1 Fraunces, Georgia, serif; }
+    .type-example.body-example { font: 400 22px/1.3 Inter, sans-serif; }
+    .type-example.mono-example { font: 400 17px/1.4 Plex, monospace; }
+    .type-example.italic-example { font: italic 500 27px/1.1 Fraunces, Georgia, serif; }
+    .type-tip { margin-top: 9mm; display: grid; grid-template-columns: 1fr 1fr; gap: 13mm; }
+    .type-tip p { margin: 3mm 0 0; font-size: 12px; line-height: 1.5; }
+    /* 07 */
+    .ui-demo { display: grid; grid-template-columns: 1.25fr .75fr; gap: 9mm; margin-top: 10mm; }
+    .ui-card { background: #161b25; border: 1px solid rgba(237,233,224,.11); border-radius: 6px; padding: 10mm; min-height: 89mm; }
+    .ui-card h3 { font-size: 35px; max-width: 14ch; margin: 7mm 0 4mm; }
+    .ui-card p { color: #b7bcc6; font-size: 13px; max-width: 51ch; line-height: 1.5; }
+    .ui-buttons { display: flex; gap: 4mm; margin-top: 11mm; }
+    .ui-btn { padding: 4mm 6mm; border-radius: 6px; font: 600 12px Inter, sans-serif; }
+    .ui-btn.primary { background: #eeeae0; color: #0b0e13; }
+    .ui-btn.secondary { border: 1px solid rgba(237,233,224,.22); color: #eeeae0; }
+    .token-list { display: grid; gap: 4mm; }
+    .token-list div { border-top: 1px solid rgba(237,233,224,.16); padding-top: 3mm; }
+    .token-list b { font: 500 11px Plex, monospace; color: #c9a15a; }
+    .token-list p { margin: 2mm 0 0; font-size: 12px; line-height: 1.45; color: #b7bcc6; }
+    .ui-rule { margin-top: 10mm; border-top: 1px solid rgba(237,233,224,.15); padding-top: 5mm; display: flex; gap: 9mm; }
+    .ui-rule p { max-width: 38ch; margin: 0; font-size: 11px; line-height: 1.5; color: #b7bcc6; }
+    /* 08 */
+    .voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; margin-top: 11mm; }
+    .voice-card { border: 1px solid rgba(11,14,19,.15); background: #fffdf8; border-radius: 6px; padding: 6mm; min-height: 34mm; }
+    .voice-card b { font: 500 10px Plex, monospace; text-transform: uppercase; color: #197a63; }
+    .voice-card p { font-size: 16px; line-height: 1.38; margin: 4mm 0 0; }
+    .voice-card small { display: block; margin-top: 3mm; font-size: 11px; color: #52606a; }
+    .voice-rule { display: grid; grid-template-columns: repeat(3,1fr); gap: 8mm; margin-top: 7mm; }
+    .voice-rule p { font-size: 11px; line-height: 1.5; margin: 2mm 0 0; }
+    /* 09 */
+    .photo-grid { display: grid; grid-template-columns: 72mm 1fr; gap: 10mm; margin-top: 10mm; }
+    .portrait { width: 72mm; height: 100mm; object-fit: cover; border-radius: 6px; }
+    .portrait-figure { margin: 0; }
+    .portrait-figure figcaption { margin-top: 3mm; font: 400 12px Plex, monospace; color: #b7bcc6; }
+    .photo-side { display: grid; grid-template-rows: 1fr auto; gap: 8mm; }
+    .photo-principles { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+    .photo-principles article { border-top: 1px solid rgba(237,233,224,.17); padding-top: 4mm; }
+    .photo-principles p { margin: 3mm 0 0; font-size: 12px; line-height: 1.5; color: #b7bcc6; }
+    .social-preview { display: grid; grid-template-columns: 84mm 1fr; gap: 8mm; align-items: center; border-top: 1px solid rgba(237,233,224,.17); padding-top: 6mm; }
+    .social-preview img { width: 84mm; border-radius: 4px; }
+    .social-preview p { margin: 0; font-size: 11px; line-height: 1.5; color: #b7bcc6; }
+    /* 10 */
+    .govern-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12mm; margin-top: 10mm; }
+    .govern-grid article { border-top: 1px solid rgba(237,233,224,.18); padding-top: 5mm; }
+    .govern-grid ul { padding-left: 18px; margin: 4mm 0 0; }
+    .govern-grid li { color: #b7bcc6; font-size: 12px; line-height: 1.5; margin-bottom: 3mm; }
+    .source-box { margin-top: 11mm; padding: 6mm 8mm; background: #161b25; border-radius: 6px; display: grid; grid-template-columns: 24mm 1fr; gap: 7mm; }
+    .source-box .badge { align-self: start; }
+    .source-box p { margin: 0; font-size: 11px; line-height: 1.5; color: #b7bcc6; }
+    /* Legible print sizes for guidance and captions. */
+    .kicker, .badge, .micro, .footer, .cover .cover-side,
+    .variant .label, .type-label, .type-spec,
+    .voice-card b, .voice-card small, .swatch .meta span,
+    .principles b, .token-list b { font-size: 12px; }
+    .logo-tile .micro { font-size: 12px; }
+    .principles p, .logo-notes p, .variant-rules p, .palette-bottom p,
+    .type-tip p, .token-list p, .ui-rule p, .voice-rule p,
+    .photo-principles p, .social-preview p, .govern-grid li,
+    .source-box p { font-size: 13px; }
+    .swatch .meta strong { font-size: 13px; }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="mark hero-mark" aria-hidden="true"></div>
+    <div class="cover-side">Sistema visual<br>Astodev<br>Versión 1.0<br>Octubre 2026</div>
+    <div class="cover-title"><div class="kicker">Identidad visual y verbal</div><h1>Guía de<br><em>marca.</em></h1><p>Tecnología que hace crecer tu negocio. Un sistema reconocible, claro y listo para aplicarse en cada punto de contacto.</p></div>
+    <div class="cover-line"></div>
+    <div class="footer"><span>Astodev · Medellín, Colombia</span><span>01 / 10</span></div>
+  </section>
+
+  <section class="page">
+    <div class="section-top"><span class="kicker">01 · Esencia</span><span class="micro">Una marca que conecta negocio y tecnología</span></div>
+    <h2>La idea detrás de la marca.</h2>
+    <div class="manifest"><blockquote>La tecnología tiene valor cuando mueve <span class="brass">el negocio</span>.</blockquote><aside><div class="badge">POSICIONAMIENTO</div><p style="margin-top:5mm">Astodev entiende la operación del cliente y crea sitios, software, tiendas online y automatizaciones que responden a problemas reales.</p><div class="badge">PROMESA</div><p style="margin-top:5mm">Claridad en el proceso, soluciones ajustadas a cada necesidad y continuidad después del lanzamiento.</p></aside></div>
+    <div class="principles"><article><b>01 / CLARIDAD</b><h3>Hablar simple.</h3><p>Explicar primero el problema y el beneficio. La tecnología se nombra cuando ayuda a decidir.</p></article><article><b>02 / CRITERIO</b><h3>Construir con propósito.</h3><p>Elegir la solución por su utilidad para el negocio, no por la novedad de la herramienta.</p></article><article><b>03 / CONTINUIDAD</b><h3>Seguir presentes.</h3><p>Plantear relaciones de largo plazo y evolución del producto, sin prometer resultados no medidos.</p></article></div>
+    <div class="footer"><span>Guía de marca · Estrategia</span><span>02 / 10</span></div>
+  </section>
+
+  <section class="page">
+    <div class="section-top"><span class="kicker">02 · Identificador</span><span class="micro">Construido a partir de los activos actuales del sitio</span></div>
+    <h2>Un símbolo, una firma.</h2>
+    <p class="lead">Dos cuadrados redondeados superpuestos forman el signo gráfico digital. El nombre se escribe <strong>Astodev</strong>, con la misma capitalización en comunicaciones y piezas nuevas.</p>
+    <div class="logo-grid"><div class="panel logo-show"><div class="wordmark"><span class="mark"></span><span>Astodev</span></div></div><div class="panel logo-tile"><div class="tile"></div><div class="micro" style="margin-top:6mm">Símbolo para icono y avatar</div></div></div>
+    <div class="logo-notes"><div><span class="badge">SÍMBOLO</span><p>El verde azulado representa sistemas y flujo. El latón aporta una señal de valor y negocio.</p></div><div><span class="badge">NOMBRE</span><p>La firma horizontal retoma el tratamiento monoespaciado del sitio y mantiene una lectura inmediata.</p></div><div><span class="badge">ESTATUS</span><p>El icono cuadrado existe como SVG. Las composiciones con nombre de esta guía son adaptaciones recomendadas para piezas nuevas.</p></div></div>
+    <div class="footer"><span>Guía de marca · Identidad</span><span>03 / 10</span></div>
+  </section>
+
+  <section class="page">
+    <div class="section-top"><span class="kicker">03 · Variaciones</span><span class="micro">Elegir por contraste y formato</span></div>
+    <h2>La firma en distintos fondos.</h2>
+    <div class="variant-grid"><div class="variant dark"><div class="wordmark"><span class="mark"></span><span>Astodev</span></div><span class="label">Principal · fondo oscuro</span></div><div class="variant lightv"><div class="wordmark dark"><span class="mark"></span><span>Astodev</span></div><span class="label">Adaptación · fondo claro</span></div><div class="variant ink"><div class="wordmark mono"><span class="mark"></span><span>Astodev</span></div><span class="label">Monocroma · marfil</span></div><div class="variant signal"><div class="wordmark mono-dark"><span class="mark"></span><span>Astodev</span></div><span class="label">Monocroma · tinta oscura</span></div></div>
+    <div class="variant-rules"><div><span class="badge">ÁREA DE RESPETO</span><p>Dejar alrededor al menos el ancho de un cuadrado pequeño del símbolo. Nunca acercar texto o bordes al signo.</p></div><div><span class="badge">ESCALA MÍNIMA</span><p>Firma horizontal: 120 px en digital. Símbolo: 24 px. Si pierde nitidez, aumentar tamaño o simplificar.</p></div><div><span class="badge">NO HACER</span><p>No deformar, rotar, añadir sombras ni cambiar por otros tonos. Evitar fondos que reduzcan el contraste.</p></div></div>
+    <div class="footer"><span>Guía de marca · Uso del logo</span><span>04 / 10</span></div>
+  </section>
+
+  <section class="page">
+    <div class="section-top"><span class="kicker">04 · Color</span><span class="micro">Valores extraídos de src/styles/global.css</span></div>
+    <h2>Una paleta de precisión.</h2>
+    <p class="lead">La base oscura deja que el contenido lleve el peso. El verde señala flujo y acción; el latón marca valor, énfasis y negocio.</p>
+    <div class="palette"><div class="swatch"><div class="chip" style="background:#0b0e13"></div><div class="meta"><strong>Grafito</strong><span>#0B0E13 · fondo</span></div></div><div class="swatch"><div class="chip" style="background:#161b25"></div><div class="meta"><strong>Superficie</strong><span>#161B25 · planos</span></div></div><div class="swatch"><div class="chip" style="background:#eeeae0"></div><div class="meta"><strong>Marfil</strong><span>#EEEAE0 · texto</span></div></div><div class="swatch"><div class="chip" style="background:#3fbfa0"></div><div class="meta"><strong>Señal</strong><span>#3FBFA0 · flujo</span></div></div><div class="swatch"><div class="chip" style="background:#c9a15a"></div><div class="meta"><strong>Latón</strong><span>#C9A15A · valor</span></div></div></div>
+    <div class="palette-bottom"><article><div class="badge">JERARQUÍA</div><p>Fondo: grafito. Tarjetas y planos: #10141C, #161B25 y #1C2230. Separadores sutiles, no bloques pesados.</p></article><article><div class="badge">LECTURA</div><p>Texto principal: marfil. Texto secundario: #B7BCC6. Etiquetas tenues: #878E9B, solo donde conserve legibilidad.</p></article><article><div class="badge">ACENTOS</div><p>Reservar señal y latón para acciones, datos y focos puntuales. Comprobar contraste en cada tamaño y fondo.</p></article></div>
+    <div class="footer"><span>Guía de marca · Paleta digital</span><span>05 / 10</span></div>
+  </section>
+
+  <section class="page light">
+    <div class="section-top"><span class="kicker">05 · Tipografía</span><span class="micro">Fuentes locales usadas por astodev.com</span></div>
+    <h2>Una voz editorial y técnica.</h2>
+    <p class="lead">Tres familias, tres funciones. Mantenerlas separadas hace que la marca sea expresiva sin perder claridad.</p>
+    <div class="type-list"><div class="type-row"><div class="type-label">Fraunces</div><div class="type-example display-example">Ideas que avanzan.</div><div class="type-spec">Titulares y frases de impacto<br>Pesos 300–600</div></div><div class="type-row"><div class="type-label">Inter</div><div class="type-example body-example">Tecnología útil para negocios reales.</div><div class="type-spec">Párrafos, botones y navegación<br>Pesos 400–700</div></div><div class="type-row"><div class="type-label">IBM Plex Mono</div><div class="type-example mono-example">DISEÑO · DESARROLLO · RESULTADOS</div><div class="type-spec">Etiquetas, datos y notas<br>Pesos 400–500</div></div><div class="type-row"><div class="type-label">Fraunces italic</div><div class="type-example italic-example">Crecer con intención.</div><div class="type-spec">Énfasis ocasional<br>Nunca párrafos completos</div></div></div>
+    <div class="type-tip"><div><span class="badge">ESCALA DIGITAL ORIENTATIVA</span><p>Titulares: 36–72 px según espacio. Subtítulos: 28–44 px. Texto de lectura: 16–18 px con interlineado cercano a 1,6.</p></div><div><span class="badge">COMPOSICIÓN</span><p>Limitar el ancho de párrafos; evitar mayúsculas sostenidas en textos largos. Usar mono en fragmentos breves, con espaciado generoso.</p></div></div>
+    <div class="footer"><span>Guía de marca · Sistema tipográfico</span><span>06 / 10</span></div>
+  </section>
+
+  <section class="page">
+    <div class="section-top"><span class="kicker">06 · Lenguaje visual</span><span class="micro">Ejemplo de aplicación digital</span></div>
+    <h2>Orden que genera confianza.</h2>
+    <div class="ui-demo"><div class="ui-card"><div class="kicker">Soluciones digitales</div><h3>Hagamos que tu negocio avance.</h3><p>Construimos tecnología alrededor de tus procesos y objetivos. Empieza por contarnos qué quieres mejorar.</p><div class="ui-buttons"><span class="ui-btn primary">Hablemos de tu proyecto →</span><span class="ui-btn secondary">Explorar servicios</span></div></div><div class="token-list"><div><b>01 / FONDO Y PROFUNDIDAD</b><p>Capas oscuras, bordes finos y superficies sobrias. Evitar sombras decorativas innecesarias.</p></div><div><b>02 / ESPACIADO</b><p>Bloques amplios y alineación constante. Agrupar texto relacionado y dar aire a la llamada a la acción.</p></div><div><b>03 / BOTONES</b><p>Radio digital de 6 px. La acción principal usa marfil sobre grafito; el hover puede tomar el latón.</p></div><div><b>04 / MOVIMIENTO</b><p>Transiciones breves y funcionales. Respetar preferencias de movimiento reducido.</p></div></div></div>
+    <div class="ui-rule"><p><span class="badge">IMÁGENES</span><br><br>Usar trabajo real, retratos auténticos y capturas verificables. Las ilustraciones deben explicar un proceso o producto.</p><p><span class="badge">RESPONSIVE</span><br><br>Conservar jerarquía y lectura en móvil. Evitar textos sobrepuestos, botones comprimidos y gráficos que pierdan significado.</p><p><span class="badge">ACCESIBILIDAD</span><br><br>Contraste, foco visible, texto alternativo y tamaños de lectura cómodos son parte del sistema de marca.</p></div>
+    <div class="footer"><span>Guía de marca · Interfaz</span><span>07 / 10</span></div>
+  </section>
+
+  <section class="page light">
+    <div class="section-top"><span class="kicker">07 · Voz de marca</span><span class="micro">Escribir para personas que dirigen negocios</span></div>
+    <h2>Claridad antes que jerga.</h2>
+    <p class="lead">Astodev habla con seguridad tranquila: explica el problema, el alcance y el beneficio sin prometer cifras que no puede demostrar.</p>
+    <div class="voice-grid"><div class="voice-card"><b>Explicar el resultado</b><p>“Conectamos tu formulario con una base de datos para que cada solicitud quede organizada.”</p><small>Concreto, comprensible y comprobable.</small></div><div class="voice-card"><b>Nombrar la acción</b><p>“Cuéntanos qué proceso quieres mejorar y revisamos juntos el punto de partida.”</p><small>Un siguiente paso claro, sin presión artificial.</small></div><div class="voice-card"><b>Presentar el trabajo</b><p>“Diseñamos y desarrollamos la tienda de Driven en Shopify, con catálogo e inventario.”</p><small>El caso describe trabajo entregado, no métricas supuestas.</small></div><div class="voice-card"><b>Evitar</b><p>“Transformación 360° garantizada con crecimiento exponencial inmediato.”</p><small>Suena genérico y promete resultados no acreditados.</small></div></div>
+    <div class="voice-rule"><div><span class="badge">TONO</span><p>Directo, humano, profesional. Usar frases activas y ejemplos cercanos a la operación de un negocio.</p></div><div><span class="badge">VOCABULARIO</span><p>Preferir “tienda online”, “software a medida”, “automatizar” y “conectar sistemas” a tecnicismos sin explicación.</p></div><div><span class="badge">PRUEBA</span><p>Usar proyectos y entregables reales. No inventar testimonios, premios, cifras de conversión ni porcentajes de ahorro.</p></div></div>
+    <div class="footer"><span>Guía de marca · Copywriting</span><span>08 / 10</span></div>
+  </section>
+
+  <section class="page">
+    <div class="section-top"><span class="kicker">08 · Imagen</span><span class="micro">Personas y trabajo reales</span></div>
+    <h2>La autoridad se muestra.</h2>
+    <div class="photo-grid"><figure class="portrait-figure"><img class="portrait" src="../public/daniel-burgoa.webp" alt="Retrato de Daniel Burgoa"><figcaption>Daniel Burgoa · Founder &amp; CEO</figcaption></figure><div class="photo-side"><div class="photo-principles"><article><span class="badge">RETRATOS</span><p>Priorizar fotografías auténticas, luz natural o controlada y una expresión cercana. Vincular nombre, cargo y empresa.</p></article><article><span class="badge">PORTAFOLIO</span><p>Mostrar sitios y productos reales cuando exista permiso. Acompañar la imagen con alcance y contexto del proyecto.</p></article><article><span class="badge">TRATAMIENTO</span><p>Recortes limpios, contraste suficiente y fondos discretos. Evitar filtros fuertes que alteren colores de clientes.</p></article><article><span class="badge">USO RESPONSABLE</span><p>No presentar maquetas conceptuales como capturas de un proyecto entregado. Identificar ejemplos ilustrativos.</p></article></div><div class="social-preview"><img src="../public/astodev-social.png" alt="Tarjeta social de Astodev"><p>El activo social existente aplica símbolo, fondo grafito, tipografía editorial y los dos acentos. Sirve como referencia para portadas, publicaciones y presentaciones.</p></div></div></div>
+    <div class="footer"><span>Guía de marca · Dirección de arte</span><span>09 / 10</span></div>
+  </section>
+
+  <section class="page">
+    <div class="section-top"><span class="kicker">09 · Implementación</span><span class="micro">Guía operativa para diseñadores, marketing y agentes</span></div>
+    <h2>Cómo mantener la coherencia.</h2>
+    <div class="govern-grid"><article><h3>Antes de publicar</h3><ul><li>Escribir “Astodev” y enlazar astodev.com de forma consistente.</li><li>Comprobar que el logo se lea y tenga suficiente espacio.</li><li>Usar colores y fuentes del sistema, sin variaciones improvisadas.</li><li>Revisar contraste, móvil, foco de teclado y texto alternativo.</li><li>Verificar servicios, precios y afirmaciones de cada proyecto con la fuente actual.</li></ul></article><article><h3>Archivos de referencia</h3><ul><li>public/astodev-logo.svg y public/favicon.svg: símbolo digital.</li><li>public/astodev-social.svg y .png: tarjeta de marca.</li><li>src/styles/global.css: colores y comportamiento visual.</li><li>ASTODEV_CONTEXT.md: negocio, oferta y reglas para IA.</li><li>PRODUCT.md: principios del producto web.</li></ul></article></div>
+    <div class="source-box"><span class="badge">ALCANCE</span><p>Esta guía formaliza el sistema visual y verbal observado en la web y el repositorio al 1 de octubre de 2026. El símbolo y la paleta proceden de activos existentes. Los lockups horizontal, claro y monocromo, y las reglas de tamaños/espaciado son recomendaciones de aplicación derivadas del sistema actual. No documenta una marca registrada ni sustituye archivos maestros vectoriales aprobados legalmente.</p></div>
+    <div class="footer"><span>Astodev · Manual de marca v1.0</span><span>10 / 10</span></div>
+  </section>
+</body>
+</html>
