@@ -1,4 +1,6 @@
 ---
+import { salesEmail, salesEmailUrl } from '../config/contact';
+
 const year = new Date().getFullYear();
 ---
 
@@ -33,7 +35,7 @@ const year = new Date().getFullYear();
 
     <div class="footer-col">
       <span class="tag">Contacto</span>
-      <a href="mailto:ventas@astodev.com">ventas@astodev.com</a>
+      <a href={salesEmailUrl}>{salesEmail}</a>
       <a href="https://wa.me/573052550729" target="_blank" rel="noopener">WhatsApp</a>
       <a href="https://www.instagram.com/astodev.tech/" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="https://www.linkedin.com/company/146606682/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -106,7 +108,7 @@ const year = new Date().getFullYear();
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: 1.5rem 0 calc(5.5rem + env(safe-area-inset-bottom, 0px));
     border-top: 1px solid var(--line);
     font-size: 0.8rem;
     color: var(--ink-faint);

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { salesEmail, salesEmailUrl } from '../config/contact';
 import CTASection from '../components/CTASection.astro';
 
 const steps = [
@@ -212,13 +213,13 @@ const rules = [
           tu primer referido.
         </p>
         <div class="registro-direct">
-          <a href="mailto:ventas@astodev.com" class="direct-item">
+          <a href={salesEmailUrl} class="direct-item">
             <span class="tag">Email</span>
-            <span>ventas@astodev.com</span>
+            <span>{salesEmail}</span>
           </a>
           <a href="https://wa.me/573052550729" target="_blank" rel="noopener" class="direct-item">
             <span class="tag">WhatsApp</span>
-            <span>+57 300 000 0000</span>
+            <span>+57 305 255 0729</span>
           </a>
         </div>
       </div>

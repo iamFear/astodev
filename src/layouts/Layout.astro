@@ -1,6 +1,8 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { salesEmail } from '../config/contact';
 import '../styles/global.css';
 
 interface Props {
@@ -40,8 +42,8 @@ const entityGraph = {
         contentUrl: 'https://astodev.com/astodev-logo.svg',
         caption: 'Astodev',
       },
-      email: 'mailto:ventas@astodev.com',
-      telephone: '+57 301 676 8911',
+      email: salesEmail,
+      telephone: '+57 305 255 0729',
       sameAs: [
         'https://www.instagram.com/astodev.tech/',
         'https://www.linkedin.com/company/146606682/',
@@ -135,5 +137,6 @@ const entityGraph = {
       <slot />
     </main>
     <Footer />
+    <WhatsAppButton />
   </body>
 </html>
