@@ -56,6 +56,24 @@
         ],
         "createdAt": "2026-10-01T22:15:48.255Z",
         "reason": "Agent: the page contains a deliberate example of the current Astodev interface, including its section label"
+      },
+      {
+        "rule": "overused-font",
+        "value": "fraunces",
+        "files": [
+          "src/styles/global.css"
+        ],
+        "createdAt": "2026-10-29T22:14:32.602Z",
+        "reason": "Project AGENTS.md explicitly requires preserving Fraunces as part of the established Astodev typography."
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "src/styles/global.css"
+        ],
+        "createdAt": "2026-10-29T22:14:32.721Z",
+        "reason": "Project AGENTS.md explicitly requires preserving Inter as part of the established Astodev typography."
       }
     ]
   }

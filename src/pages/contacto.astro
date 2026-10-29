@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { salesEmail, salesEmailUrl } from '../config/contact';
 ---
 
 <Layout title="Contacto" description="Hablemos de tu proyecto. Cuéntanos qué necesita tu negocio y te respondemos en menos de 24 horas.">
@@ -11,13 +12,13 @@ import Layout from '../layouts/Layout.astro';
         <p>Cuéntanos qué necesitas y te respondemos en menos de 24 horas, sin compromiso.</p>
 
         <div class="contact-direct">
-          <a href="mailto:ventas@astodev.com" class="direct-item">
+          <a href={salesEmailUrl} class="direct-item">
             <span class="tag">Email</span>
-            <span>ventas@astodev.com</span>
+            <span>{salesEmail}</span>
           </a>
           <a href="https://wa.me/573052550729" target="_blank" rel="noopener" class="direct-item">
             <span class="tag">WhatsApp</span>
-            <span>+57 301 676 8911</span>
+            <span>+57 305 255 0729</span>
           </a>
           <div class="direct-item">
             <span class="tag">Ubicación</span>

@@ -90,5 +90,6 @@ Para recibir notificaciones por email de cada envío: en Netlify ve a *Site sett
 ## Personalización rápida
 
 - **Colores / tipografía:** `src/styles/global.css` (sección `:root`).
-- **WhatsApp y email:** buscar `wa.me/573000000000` y `hola@astodev.co` en `Nav.astro`, `Footer.astro` y `contacto.astro`, y reemplazar por los datos reales.
+- **Email:** `ventas@astodev.com`; la dirección, el asunto y el mensaje predeterminado se configuran en `src/config/contact.ts`.
+- **WhatsApp:** `+57 305 255 0729`; los enlaces usan `wa.me/573052550729` en el footer, contacto, partners y el botón flotante.
 - **Dominio:** cambiar `site` en `astro.config.mjs`.
