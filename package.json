@@ -1,8 +1,21 @@
 {
   "name": "astodev",
-  "type": "module",
   "version": "1.0.0",
   "private": true,
+  "description": "Official Astodev Website.",
+  "keywords": [],
+  "homepage": "https://github.com/iamFear/astodev#readme",
+  "bugs": {
+    "url": "https://github.com/iamFear/astodev/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamFear/astodev.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -13,11 +26,6 @@
   "dependencies": {
     "astro": "^7.2.1"
   },
-  "description": "Official Astodev Website.",
-  "main": "index.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@lhci/cli": "0.15.1"
   }
