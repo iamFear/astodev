@@ -96,7 +96,7 @@ body {
   background-image:
     radial-gradient(ellipse 900px 500px at 85% -10%, rgba(63, 191, 160, 0.07), transparent 60%),
     radial-gradient(ellipse 700px 500px at -10% 20%, rgba(201, 161, 90, 0.06), transparent 60%);
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 img, svg { display: block; max-width: 100%; }
