@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/\.mdx?$/, '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <article class="wrap post">
+    <span class="eyebrow">Blog · {post.data.date.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+    <h1>{post.data.title}</h1>
+    <p class="post-desc">{post.data.description}</p>
+    <div class="post-body">
+      <Content />
+    </div>
+    <a href="/blog/" class="btn btn-ghost">← Volver al blog</a>
+  </article>
+</Layout>
+
+<style>
+  .post {
+    padding: clamp(3rem, 7vw, 5rem) 0;
+    max-width: 760px;
+  }
+  .post h1 {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin-top: 1rem;
+  }
+  .post-desc {
+    margin-top: 1rem;
+    color: var(--ink-dim);
+    font-size: 1.1rem;
+  }
+  .post-body {
+    margin: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+    line-height: 1.7;
+  }
+  .post-body :global(h2) {
+    color: var(--ink);
+    font-size: 1.5rem;
+    margin-top: 1rem;
+  }
+  .post-body :global(a) {
+    color: var(--brass);
+    font-weight: 600;
+  }
+  .post-body :global(ul) {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+</style>
