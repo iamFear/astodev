@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title="Blog" description="Artículos de Astodev sobre desarrollo web, automatización, e-commerce y crecimiento digital.">
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Blog</span>
+      <h1>Ideas para crecer con tecnología.</h1>
+      <p>Guías prácticas sobre web, automatización y ventas online.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap grid-auto">
+      {posts.map((post) => (
+        <a href={`/blog/${post.id.replace(/\.mdx?$/, '')}/`} class="card post-card">
+          <span class="tag">{post.data.date.toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <h2>{post.data.title}</h2>
+          <p>{post.data.description}</p>
+          <span class="post-link">Leer artículo →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    padding: clamp(3rem, 7vw, 5rem) 0 clamp(2rem, 5vw, 3rem);
+    border-bottom: 1px solid var(--line);
+  }
+  .page-hero h1 {
+    font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+    margin-top: 0.9rem;
+    max-width: 20ch;
+  }
+  .page-hero p {
+    margin-top: 1.1rem;
+    color: var(--ink-dim);
+    font-size: 1.08rem;
+    max-width: 56ch;
+  }
+  .post-card h2 {
+    font-size: 1.4rem;
+    margin-top: 0.8rem;
+  }
+  .post-card p {
+    margin-top: 0.8rem;
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+  }
+  .post-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--brass);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+</style>
