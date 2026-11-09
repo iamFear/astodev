@@ -5,6 +5,8 @@ backend:
   base_url: https://api.netlify.com
   auth_endpoint: auth
 
+publish_mode: editorial_workflow
+
 media_folder: public/img/blog
 public_folder: /img/blog
 
@@ -19,7 +21,7 @@ collections:
       - { label: 'Descripción', name: 'description', widget: 'text' }
       - { label: 'Fecha', name: 'date', widget: 'datetime' }
       - { label: 'Autor', name: 'author', widget: 'string', default: 'Astodev' }
-      - { label: 'Imagen', name: 'image', widget: 'image', required: false }
+      - { label: 'Imagen', name: 'image', widget: 'image', required: false, pattern: ['^.+/img/blog/.+\.(jpg|jpeg|png|webp)$', 'Solo jpg, png o webp en /img/blog/'] }
       - { label: 'Etiquetas', name: 'tags', widget: 'list', required: false }
       - { label: 'Borrador', name: 'draft', widget: 'boolean', default: false }
       - { label: 'Contenido', name: 'body', widget: 'markdown' }
