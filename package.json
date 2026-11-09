@@ -29,6 +29,9 @@
     "rehype-sanitize": "^6.0.0"
   },
   "devDependencies": {
-    "@lhci/cli": "0.15.1"
+    "@lhci/cli": "^0.16.0"
+  },
+  "overrides": {
+    "basic-ftp": "^6.2.6"
   }
 }
