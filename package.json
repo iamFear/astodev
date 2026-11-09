@@ -30,8 +30,5 @@
   },
   "devDependencies": {
     "@lhci/cli": "^0.16.0"
-  },
-  "overrides": {
-    "basic-ftp": "^6.2.6"
   }
 }
