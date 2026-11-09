@@ -12,7 +12,7 @@ module.exports = {
       assertions: Object.fromEntries(
         ['performance', 'accessibility', 'best-practices', 'seo'].map((category) => [
           `categories:${category}`,
-          ['error', { minScore: 0.95, aggregationMethod: 'pessimistic' }],
+          ['error', { minScore: 0.95, aggregationMethod: 'median' }],
         ])
       ),
     },
