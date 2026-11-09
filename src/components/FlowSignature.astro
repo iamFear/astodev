@@ -77,7 +77,19 @@ const path = points
   @media (prefers-reduced-motion: reduce) {
     .pulse { display: none; }
   }
+  /* Mobile: hide the continuously-animated dot to avoid SMIL-driven
+     main-thread work (TBT) on low-power devices. The static path stays. */
+  @media (max-width: 760px) {
+    .pulse { display: none; }
+  }
   .flow-draw {
     opacity: 0.9;
   }
 </style>
+
+<script>
+  const svg = document.querySelector('.flow-signature svg');
+  if (svg && window.matchMedia('(max-width: 760px), (prefers-reduced-motion: reduce)').matches) {
+    (svg as SVGSVGElement).pauseAnimations?.();
+  }
+</script>

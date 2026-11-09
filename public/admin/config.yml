@@ -21,7 +21,7 @@ collections:
       - { label: 'Descripción', name: 'description', widget: 'text' }
       - { label: 'Fecha', name: 'date', widget: 'datetime' }
       - { label: 'Autor', name: 'author', widget: 'string', default: 'Astodev' }
-      - { label: 'Imagen', name: 'image', widget: 'image', required: false, pattern: ['\\.(jpg|jpeg|png|webp|JPG|JPEG|PNG|WEBP)$', 'Solo jpg, png o webp'] }
+      - { label: 'Imagen', name: 'image', widget: 'image', required: false, pattern: ['\.(jpg|jpeg|png|webp|JPG|JPEG|PNG|WEBP)$', 'Solo jpg, png o webp'] }
       - { label: 'Etiquetas', name: 'tags', widget: 'list', required: false }
       - { label: 'Borrador', name: 'draft', widget: 'boolean', default: false }
       - { label: 'Contenido', name: 'body', widget: 'markdown' }
