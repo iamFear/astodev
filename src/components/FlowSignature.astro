@@ -72,7 +72,10 @@ const path = points
     fill: var(--ink-faint);
   }
   .pulse {
-    filter: drop-shadow(0 0 6px var(--signal));
+    opacity: 0.9;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse { display: none; }
   }
   .flow-draw {
     opacity: 0.9;
