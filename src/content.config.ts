@@ -8,7 +8,10 @@ const blog = defineCollection({
     description: z.string(),
     date: z.coerce.date(),
     author: z.string().default('Astodev'),
-    image: z.string().optional(),
+    image: z
+      .string()
+      .regex(/^\/img\/blog\/[a-z0-9-]+\.(jpg|jpeg|png|webp)$/, 'Imagen debe estar en /img/blog/ y ser jpg, png o webp')
+      .optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),
