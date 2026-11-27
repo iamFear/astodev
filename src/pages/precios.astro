@@ -4,7 +4,7 @@ import PricingCard from '../components/PricingCard.astro';
 import CTASection from '../components/CTASection.astro';
 ---
 
-<Layout title="Precios" description="Precios de desarrollo web, automatización, e-commerce y software a medida en Astodev. Rangos claros desde el primer contacto.">
+<Layout title="Precios" description="Precios del sistema «Ningún cliente se pierde» desde $1.000.000 COP, desarrollo web, automatización, e-commerce y software a medida en Astodev. Rangos claros desde el primer contacto.">
   <section class="page-hero">
     <div class="wrap">
       <span class="eyebrow">Precios</span>
@@ -16,6 +16,61 @@ import CTASection from '../components/CTASection.astro';
       </p>
     </div>
   </section>
+
+  <section class="section" id="sistema">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Ningún cliente se pierde</span>
+        <h2>Sabe cuántos clientes te llegan y responde a cada uno a tiempo.</h2>
+        <p>
+          Un sistema que registra cada contacto que llega por WhatsApp, tu web o Google,
+          avisa en el momento a quien atiende y te muestra cada mes cuántos se atendieron
+          y cuántos se perdieron.
+        </p>
+      </div>
+
+      <div class="diag-box">
+        <div>
+          <span class="tag">Paso 1 · Gratis</span>
+          <h3>Diagnóstico de contactos perdidos</h3>
+          <p>
+            Te escribimos como un cliente por WhatsApp, tu web e Instagram, medimos cuánto
+            tardan en responder y revisamos tu perfil de Google. En 48 horas te entregamos
+            3 hallazgos y los revisamos juntos en una llamada de 15 minutos.
+          </p>
+        </div>
+        <a href="/contacto/" class="btn btn-ghost">Solicitar diagnóstico <span class="btn-arrow">→</span></a>
+      </div>
+
+      <div class="grid-auto system-plans">
+        <PricingCard
+          tier="Esencial"
+          price="$1.000.000 COP"
+          audience="Para negocios que quieren dejar de perder contactos."
+          items={['Landing con un solo objetivo: escribir o agendar', 'Cada contacto de WhatsApp o formulario queda registrado', 'Aviso inmediato a quien atiende', 'Respuesta automática al instante', 'Enlace de agendamiento y perfil de Google conectado', 'Panel mensual: contactos atendidos y perdidos', 'Listo en 1 a 2 semanas']}
+          cta="Quiero Esencial"
+          featured
+          badge="Recomendado"
+        />
+        <PricingCard
+          tier="Completo"
+          price="$2.000.000 COP"
+          audience="Para negocios con varios canales, sedes o responsables."
+          items={['Sitio de varias páginas', 'Origen de cada contacto: Google, Instagram, web o anuncios', 'Asignación por responsable o sede', 'Seguimiento automático a quien no agendó', 'Agenda integrada con disponibilidad', 'Panel con tiempo de respuesta y conversión', 'Listo en 3 a 4 semanas']}
+          cta="Quiero Completo"
+        />
+      </div>
+
+      <p class="system-note">
+        <strong>Garantía:</strong> si en 30 días el panel no registra cada contacto que llega
+        por los canales conectados, seguimos trabajando sin costo hasta que lo haga o te
+        devolvemos el dinero. Después, <a href="#recurrente">Astodev Care</a> desde $150.000/mes
+        incluye el reporte mensual. Dominio y herramientas de terceros se cobran aparte, a costo.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule wrap" />
 
   <section class="section" id="web">
     <div class="wrap">
@@ -212,6 +267,38 @@ import CTASection from '../components/CTASection.astro';
   }
   .full { width: 100%; justify-content: center; }
 
+  .diag-box {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    border: 1px solid var(--signal);
+    background: linear-gradient(180deg, var(--signal-soft), var(--surface) 70%);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  .diag-box h3 {
+    font-family: var(--f-display);
+    font-size: 1.5rem;
+    margin-top: 0.7rem;
+  }
+  .diag-box p {
+    margin-top: 0.6rem;
+    color: var(--ink-dim);
+    font-size: 0.95rem;
+    max-width: 62ch;
+  }
+  .system-plans { margin-top: 1rem; }
+  .system-note {
+    margin-top: 1.6rem;
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+    max-width: 75ch;
+  }
+  .system-note strong { color: var(--brass); font-weight: 600; }
+  .system-note a { color: var(--signal); }
+
   .recurring-card { text-align: left; }
   .recurring-price {
     font-family: var(--f-display);
@@ -231,5 +318,6 @@ import CTASection from '../components/CTASection.astro';
 
   @media (max-width: 820px) {
     .software-cta { grid-template-columns: 1fr; }
+    .diag-box { grid-template-columns: 1fr; }
   }
 </style>

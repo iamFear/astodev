@@ -17,3 +17,6 @@
 # Logs and operating system files
 *.log
 .DS_Store
+
+# Vault de Obsidian con documentación interna (no versionar)
+/Astodev/
