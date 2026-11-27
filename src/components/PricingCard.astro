@@ -6,12 +6,13 @@ interface Props {
   items: string[];
   cta: string;
   featured?: boolean;
+  badge?: string;
 }
-const { tier, price, audience, items, cta, featured = false } = Astro.props;
+const { tier, price, audience, items, cta, featured = false, badge = 'Más elegido' } = Astro.props;
 ---
 
 <div class={`pricing-card ${featured ? 'featured' : ''}`}>
-  {featured && <span class="badge">Más elegido</span>}
+  {featured && <span class="badge">{badge}</span>}
   <span class="tag">{tier}</span>
   <p class="price">
     <span class="price-from">Desde</span> {price}
